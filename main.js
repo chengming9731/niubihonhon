@@ -10,7 +10,8 @@ require.config({
 		'mine': 'component/wrap/mine/mine',
 		'shopcar': 'component/wrap/shopcar/shopcar',
 		'wrap':'component/wrap/wrap',
-		'login':'component/login/login'
+		'login':'component/login/login',
+		'iconfont':'js/libs/iconfont'
 	},
 	shim: {
 		'uiRouter': {
