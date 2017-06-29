@@ -3,7 +3,8 @@ define(['uiRouter'],function(){
 		.config(function($stateProvider,$urlRouterProvider){
 			$stateProvider.state('wrap.home',{
 				url:'/home',
-				templateUrl:'component/wrap/home/home.html'
+				templateUrl:'component/wrap/home/home.html',
+				css:'component/wrap/home/home.css'
 			});
 		});
 });
