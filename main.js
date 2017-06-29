@@ -8,7 +8,7 @@ require.config({
 		'home': 'component/wrap/home/home',
 		'category': 'component/wrap/category/category',
 		'mine': 'component/wrap/mine/mine',
-		'shopcar': 'component/wrap/shopcar/shopcar',
+		'shopcar': 'component/shopcar/shopcar',
 		'wrap':'component/wrap/wrap',
 		'login':'component/login/login',
 		'iconfont':'js/libs/iconfont'
@@ -30,7 +30,7 @@ require.config({
 			deps: ['category']
 		},
 		'shopcar': {
-			deps: ['mine']
+			deps: ['uiRouter']
 		},
 		'wrap':{
 			deps:['uiRouter']

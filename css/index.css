@@ -5,7 +5,7 @@ a{text-decoration: none;color: #00000;}
 .fl{float: left;}
 .fr{float: right;}
 .clear:after{content: '.';height: 0;visibility: hidden;display:block;clear: both;font-size: 0;}
-
+input[type=checkbox], input[type=email], input[type=number], input[type=password], input[type=radio], input[type=search], input[type=tel], input[type=text] {vertical-align: middle;outline: 0;color: #424242;-webkit-appearance: none;-webkit-user-select: text;}
 html,body{width: 100%;height: 100%;}
 #wrap{font-size: 0.4rem;width: 100%;height: 90%;}
 #tab{font-size:0.4rem;width: 100%;height: 10%;display:flex; justify-content:space-between;align-items: center;border-top: 0.013333rem solid #cccccc;}
