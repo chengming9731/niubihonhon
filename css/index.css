@@ -1,0 +1,12 @@
+*{margin: 0;padding:0;}
+li{list-style: none;}
+img{display: block;}
+a{text-decoration: none;color: #00000;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{content: '.';height: 0;visibility: hidden;display:block;clear: both;}
+
+html,body{width: 100%;height: 100%;}
+#wrap{font-size: 0.4rem;width: 100%;height: 90%;}
+#tab{font-size:0.4rem;width: 100%;height: 10%;display:flex; justify-content:space-between;align-items: center;border-top: 0.013333rem solid #cccccc;}
+#tab>a{width: 25%;display:flex;flex-direction:column;justify-content:center;align-items: center;}
