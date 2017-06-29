@@ -4,7 +4,7 @@ img{display: block;}
 a{text-decoration: none;color: #00000;}
 .fl{float: left;}
 .fr{float: right;}
-.clear{content: '.';height: 0;visibility: hidden;display:block;clear: both;}
+.clear:after{content: '.';height: 0;visibility: hidden;display:block;clear: both;font-size: 0;}
 
 html,body{width: 100%;height: 100%;}
 #wrap{font-size: 0.4rem;width: 100%;height: 90%;}
