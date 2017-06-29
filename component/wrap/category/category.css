@@ -1,0 +1,3 @@
+.category{width: 100%;height: 100%;}
+.category .top{width: 100%;height: 1.333333rem;position: fixed;left: 0;top: 0;background: red;}
+.category .main{width: 100%;height: 100%;background: green;}
