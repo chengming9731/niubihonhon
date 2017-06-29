@@ -9,6 +9,6 @@ define(['uiRouter'],function(){
 		});
 	})
 		.controller('wrapCtrl',['$state',function($state){
-			$state.go('wrap.home');//默认显示第一个tab
+			$state.go('wrap.category');//默认显示第一个tab
 		}])
 })		

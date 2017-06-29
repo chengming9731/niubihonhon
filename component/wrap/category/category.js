@@ -5,7 +5,16 @@ define(['uiRouter'],function(){
 				url:'/category',
 				templateUrl:'component/wrap/category/category.html',
 				css:'component/wrap/category/category.css',
-				controller:''
+				controller:'categoryCtrl'
 			});
-		});
+		})
+		.controller('categoryCtrl',['$scope','$http',function($scope,$http){
+			$http.jsonp('https://list.mogujie.com/search?cKey=h5-cube&fcid=10062603&page=1&_version=1&pid=&q=&cpc_offset=0&_=1498716986564&callback=JSON_CALLBACK')
+			.then(function(res){
+				console.log(res)
+			},function(error){
+				console.log(error)
+			})
+		}])
+		;
 });

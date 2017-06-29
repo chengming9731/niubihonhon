@@ -1,7 +1,13 @@
-define(['uiRouter','angularCSS','category','shopcar','mine','wrap','login','home'],function(){
-	var app = angular.module('myModule',['ui.router','angularCSS','loginModule','categoryModule','shopcarModule','mineModule','wrapModule','homeModule'])
-		.config(function($stateProvider,$urlRouterProvider){
-			$urlRouterProvider.otherwise('/wrap');
-		})
-	;
+define(['uiRouter', 'angularCSS', 'category', 'shopcar', 'mine', 'wrap', 'login', 'home'], function() {
+			var app = angular.module('myModule', ['ui.router', 'angularCSS', 'loginModule', 'categoryModule', 'shopcarModule', 'mineModule', 'wrapModule', 'homeModule'])
+				.config(function($stateProvider, $urlRouterProvider) {
+					$urlRouterProvider.otherwise('/wrap');
+				})
+				.directive('search', function() {
+					return {
+						restrict: 'E',
+						replace: true,
+						templateUrl: 'component/search/search.html',
+					};
+				});
 });

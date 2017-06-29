@@ -1,4 +1,4 @@
-*{margin: 0;padding:0;}
+*{margin: 0;padding:0;box-sizing: border-box;}
 li{list-style: none;}
 img{display: block;}
 a{text-decoration: none;color: #00000;}
@@ -11,3 +11,8 @@ html,body{width: 100%;height: 100%;}
 #tab{font-size:0.4rem;width: 100%;height: 10%;display:flex; justify-content:space-between;align-items: center;border-top: 0.013333rem solid #cccccc;}
 #tab>a{width: 25%;display:flex;flex-direction:column;justify-content:center;align-items: center;}
 #tab a .iconfont{font-size: 0.4rem;}
+
+/*搜索框*/
+#search{background: #FFFFFF;position: fixed;left: 0;top: 0;height: 1.333333rem;width: 100%;display: flex;justify-content: space-around;align-items: center;}
+#search input{width: 60%;line-height: 0.8rem;height: 0.8rem;border: 0;background: #E7E1CD;padding: 0.133333rem;font-size: 0.3rem;border-radius: 0.133333rem;outline: 0;}
+#search a .iconfont{font-size: 0.666666rem;color: #CCCCCC;}
