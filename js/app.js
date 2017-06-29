@@ -11,3 +11,4 @@ define(['uiRouter', 'angularCSS', 'category', 'shopcar', 'mine', 'wrap', 'login'
 					};
 				});
 });
+

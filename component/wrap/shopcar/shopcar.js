@@ -8,4 +8,5 @@ define(['uiRouter'],function(){
 				controller:''
 			});
 		});
+		
 });
