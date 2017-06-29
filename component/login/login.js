@@ -1,0 +1,12 @@
+define(['uiRouter'],function(){
+	angular.module('loginModule',['ui.router'])
+		.config(function($stateProvider,$urlRouterProvider){
+			$stateProvider
+				.state('login',{
+					url:'/login',
+					templateUrl:'component/login/login.html',
+					css:'component/login/login.css',
+					controller:''
+				});
+		})
+});

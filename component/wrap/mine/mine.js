@@ -1,9 +1,11 @@
 define(['uiRouter'],function(){
 	var mineApp = angular.module('mineModule',['ui.router'])
 		.config(function($stateProvider,$urlRouterProvider){
-			$stateProvider.state('mine',{
+			$stateProvider.state('wrap.mine',{
 				url:'/mine',
-				templateUrl:'component/mine/mine.html'
+				templateUrl:'component/wrap/mine/mine.html',
+				css:'component/wrap/mine/mine.css',
+				controller:''
 			});
 		});
 });
