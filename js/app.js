@@ -1,5 +1,5 @@
-define(['uiRouter','category','shopcar','mine','wrap','login'],function(){
-	var app = angular.module('myModule',['ui.router','loginModule','categoryModule','shopcarModule','mineModule','wrapModule'])
+define(['uiRouter','angularCSS','category','shopcar','mine','wrap','login','home'],function(){
+	var app = angular.module('myModule',['ui.router','angularCSS','loginModule','categoryModule','shopcarModule','mineModule','wrapModule','homeModule'])
 		.config(function($stateProvider,$urlRouterProvider){
 			$urlRouterProvider.otherwise('/wrap');
 		})

@@ -1,11 +1,10 @@
-define(['uiRouter','home'],function(){
-	angular.module('wrapModule',['ui.router','homeModule'])
+define(['uiRouter'],function(){
+	angular.module('wrapModule',['ui.router'])
 		.config(function($stateProvider,$urlRouterProvider){
 			$stateProvider
 				.state('wrap',{
 					url:'/wrap',
 					templateUrl:'component/wrap/wrap.html',
-					css:'component/wrap/wrap.css',
 					controller: 'wrapCtrl'
 		});
 	})
