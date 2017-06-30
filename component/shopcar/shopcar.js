@@ -6,8 +6,14 @@ define(['uiRouter'],function(){
 					url:'/shopcar',
 					templateUrl:'component/shopcar/shopcar.html',
 					css:'component/shopcar/shopcar.css',
-					controller:''
+					controller:'shopcarCtrl'
 				});
 		})
+		.controller('shopcarCtrl',['$scope',function($scope){
+			$scope.choose=true;
+			$scope.goback=function(){
+				window.history.go(-1);
+			}
+		}])
 		
 });

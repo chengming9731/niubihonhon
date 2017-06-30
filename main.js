@@ -12,7 +12,11 @@ require.config({
 		'wrap':'component/wrap/wrap',
 		'login':'component/login/login',
 		'iconfont':'js/libs/iconfont',
-		'site':'component/wrap/mine/branch/site/site'
+		'site':'component/wrap/mine/branch/site/site',
+		'jquery':'https://cdn.bootcss.com/jquery/2.2.4/jquery.min',
+		'register':'component/register/register',
+		'addsite':'component/wrap/mine/branch/site/addsite/addsite',
+		'orderform':'component/wrap/mine/branch/orderform/orderform'
 	},
 	shim: {
 		'uiRouter': {
@@ -43,6 +47,12 @@ require.config({
 			deps: ['uiRouter']
 		},
 		'site':{
+			deps:['uiRouter']
+		},
+		'addsite':{
+			deps:['uiRouter']
+		},
+		'orderform':{
 			deps:['uiRouter']
 		}
 	}
