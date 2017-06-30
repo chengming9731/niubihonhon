@@ -11,7 +11,12 @@ require.config({
 		'shopcar': 'component/shopcar/shopcar',
 		'wrap':'component/wrap/wrap',
 		'login':'component/login/login',
-		'iconfont':'js/libs/iconfont'
+		'iconfont':'js/libs/iconfont',
+		'jquery':'https://cdn.bootcss.com/jquery/2.2.4/jquery.min',
+		'register':'component/register/register',
+		'chooseCountry':'component/chooseCountry/chooseCountry',
+		'findPassWord':'component/findPassWord/findPassWord',
+		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword'
 	},
 	shim: {
 		'uiRouter': {
