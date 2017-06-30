@@ -30,7 +30,7 @@ define(['uiRouter','swiper'],function(){
 		    	this.swiper = function(){
 		    			$timeout(function(){
 		    				var mySwiper = new Swiper ('.swiper-container', {
-//							autoplay:1000,
+							autoplay:1000,
 							observer:true,observeParents:true,
 //							autoplay;DisableOnInteraction:true,
 						    loop: true,  
