@@ -6,16 +6,16 @@
 <div class="emptycart">
 	<p><i class="iconfont icon-gouwuchekong"></i></p>
 	<p>购物车还是空的哦~</p>
-	<p><div class="button">去逛逛</div></p>
+	<div class="button">去逛逛</div>
 </div>
 <div class="shop">
 	<h3 class="shop-head">
-		<input type="checkbox" class="shop-checkbox">
+		<input type="checkbox" class="shop-checkbox" ng-class={true:'shop-checkbox',false:'shop-checkboxed'}[choose0] ng-click='change0(type)'>
 		<a href="">第一个店铺</a>
 		<span>领券&nbsp></span>
 	</h3>
 	<li class="goodslist">
-		<!--<input type="checkbox" ng-class={true:'goodslist-check',false:'goodslist-checked'}[choose] ng-click='change()'>-->
+		<input type="checkbox" ng-class={true:'goodslist-check',false:'goodslist-checked'}[choose] ng-click='change(type)'>
 		<a href="" class="goodslist-pic"><img src="http://s3.mogucdn.com/mlcdn/c45406/170423_7c7bbg97i251ck87jf8jj91bdd8d7_640x960.jpg_220x330.jpg" alt="" /></a>
 		<div class="goodslist-de">
 			<div class="goodslist-desc">
@@ -30,4 +30,11 @@
 		</div>
 	</li> 
 </div>
-<div>{{name}}</div>
+<div class="checkout-normal">
+	<div class="checkout-checkbox">
+		<input type="checkbox" name="c-all" class="checkout-checkbox-all">
+		<span>全选(</span><span class="total-num">0</span><span>)</span>
+	</div>
+	<div class="checkout-counter">￥<span class="money">0.00</span></div>
+	<div class="checkout-select">去结算</div>
+</div>
