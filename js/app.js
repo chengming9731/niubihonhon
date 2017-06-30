@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-define(['uiRouter', 'angularCSS', 'mine', 'wrap','login','searchpage', 'home','category', 'shopcar'], function() {
+define(['uiRouter', 'angularCSS', 'mine', 'wrap','login', 'home','category', 'shopcar'], function() {
 			var app = angular.module('myModule', ['ui.router', 'angularCSS', 'loginModule', 'categoryModule', 'shopcarModule', 'mineModule', 'wrapModule', 'homeModule','searchpageModule'])
 				.config(function($stateProvider, $urlRouterProvider) {
 					$urlRouterProvider.otherwise('/wrap');
@@ -13,8 +12,8 @@ define(['uiRouter', 'angularCSS', 'mine', 'wrap','login','searchpage', 'home','c
 				});
 });
 
-=======
-define(['uiRouter', 'angularCSS', 'mine', 'wrap', 'login', 'home', 'category', 'shopcar', 'jquery'], function() {
+
+define(['uiRouter', 'angularCSS', 'mine', 'wrap', 'login', 'home', 'category', 'shopcar', 'jquery','searchpage'], function() {
 	var app = angular.module('myModule', ['ui.router', 'angularCSS', 'loginModule', 'categoryModule', 'shopcarModule', 'mineModule', 'wrapModule', 'homeModule'])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$urlRouterProvider.otherwise('/wrap');
@@ -39,4 +38,4 @@ define(['uiRouter', 'angularCSS', 'mine', 'wrap', 'login', 'home', 'category', '
 			};
 		}])
 });
->>>>>>> a7bdd7fc3df62e2fe819bb7d18c984620c8e50ba
+
