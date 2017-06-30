@@ -1,6 +1,7 @@
 #wrap-mine{
 	width: 100%;
 	height: 100%;
+	overflow: auto;
 }
 .wrap-mine1{
 	height: auto;
@@ -13,7 +14,7 @@
 }
 
 .head-portrait{
-	width: 1.61rem;
+	width: 2rem;
     padding-top: .46rem;
     padding-left: .6rem;
     height: 1.79rem;
@@ -117,4 +118,26 @@
 }
 .conter-tips a:last-child .conter-indent-ico{
 	height: 1.8rem;
+}
+.inform{
+	width: 100%;
+    margin-top: .3rem;
+    background-color: #fff;
+}
+.out-register{
+	width: 9rem;
+    margin-top: .4rem;
+    margin: .4rem auto 0 auto;
+}
+.out-register a{
+	display: block;
+    width: 9rem;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    color: #fff;
+    background-color: #ff5777;
+    font-size: .4rem;
+    border-radius: 4px;
+    text-align: center;
+    
 }

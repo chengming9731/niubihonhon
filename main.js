@@ -13,8 +13,11 @@ require.config({
 		'login':'component/login/login',
 		'searchpage':'component/searchpage/searchpage',
 		'iconfont':'js/libs/iconfont',
+		'site':'component/wrap/mine/branch/site/site',
 		'jquery':'https://cdn.bootcss.com/jquery/2.2.4/jquery.min',
 		'register':'component/register/register',
+		'addsite':'component/wrap/mine/branch/site/addsite/addsite',
+		'orderform':'component/wrap/mine/branch/orderform/orderform',
 		'chooseCountry':'component/chooseCountry/chooseCountry',
 		'findPassWord':'component/findPassWord/findPassWord',
 		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword'
@@ -48,6 +51,15 @@ require.config({
 			deps:['uiRouter']
 		},
 		'app': {
+			deps: ['uiRouter']
+		},
+		'site':{
+			deps:['uiRouter']
+		},
+		'addsite':{
+			deps:['uiRouter']
+		},
+		'orderform':{
 			deps:['uiRouter']
 		}
 	}
