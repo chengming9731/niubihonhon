@@ -20,12 +20,12 @@
 .category .main .main-right #nav-wall .active span{color: #ef4f6b;}
 .category .main .main-right #nav-wall a span{width:100%;line-height:0.4rem;border-left: 0.013333rem solid #adabab;text-align: center;}
 /*固定定位*/
-.category .main .main-right .fixed{width: 80%;position: fixed;top: 1.333333rem;left: 20%;background: #FFFFFF;}
+.category .main .main-right .fixed{width: 80%;position: fixed;top: 1.333333rem;left: 20%;background: #FFFFFF;z-index: 1999;}
 
 .category .main .main-right .products{width: 100%;}
 .category .main .main-right .products .item{width: 40%;margin:5% ;display: block;}
 .category .main .main-right .products .item div{width: 100%;height: auto;position: relative;}
-.category .main .main-right .products .item div img{width: 100%;height: auto;}
+.category .main .main-right .products .item div img{width: 100%;height: 48vw;}
 .category .main .main-right .products .item div>span{width:100% ;display:block;line-height: 0.666666rem;font-size: 0.266666rem;color: #FFFFFF;position: absolute;bottom: 0.133333rem;left: 0;background: linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0));padding-left: 0.13333rem;}
 .category .main .main-right .products .item div:last-of-type{padding: 0.133333rem;font-size: 0.266666rem;}
 .category .main .main-right .products .item div:last-of-type h3{white-space: nowrap;text-overflow: ellipsis;overflow: hidden;font-weight: 100;}
