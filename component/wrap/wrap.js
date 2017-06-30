@@ -9,14 +9,15 @@ define(['uiRouter'], function() {
 				});
 		})
 		.controller('wrapCtrl', ['$state', '$scope', function($state, $scope) {
-			localStorage.setItem('tabIndex', 0);
 			var tabIndex = localStorage.getItem('tabIndex');
-			
 			$scope.tabIndex = tabIndex ? tabIndex : 0;
 			var sTabPage = getTabPage();
 			$state.go(sTabPage); //默认显示第一个tab
 			$scope.changeTab = function(index) {
 				$scope.tabIndex = index;
+				if(index == 2){
+				index = 0;
+			}
 				localStorage.setItem('tabIndex', index);
 			}
 			function getTabPage() {

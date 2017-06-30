@@ -13,7 +13,10 @@ require.config({
 		'login':'component/login/login',
 		'iconfont':'js/libs/iconfont',
 		'jquery':'https://cdn.bootcss.com/jquery/2.2.4/jquery.min',
-		'register':'component/register/register'
+		'register':'component/register/register',
+		'chooseCountry':'component/chooseCountry/chooseCountry',
+		'findPassWord':'component/findPassWord/findPassWord',
+		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword'
 	},
 	shim: {
 		'uiRouter': {
