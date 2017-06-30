@@ -1,5 +1,5 @@
-define(['uiRouter','register'],function(){
-	angular.module('loginModule',['ui.router','registerModule'])
+define(['uiRouter','register','findPassWord','loginWithoutPassword'],function(){
+	angular.module('loginModule',['ui.router','registerModule','findPassWordModule','lwpModule'])
 		.config(function($stateProvider,$urlRouterProvider){
 			$stateProvider
 				.state('login',{
@@ -13,10 +13,10 @@ define(['uiRouter','register'],function(){
 			$scope.headTitle = '登录';
 			$scope.headRight = '忘记密码';
 			$scope.goBack = function(){
-				history.go(-1);
+				$state.go('wrap.home');
 			};
 			$scope.headRightClick = function(){
-				$state.go('wrap');
+				$state.go('findPassWord');
 			}
 			
 			$scope.login = function(){
@@ -28,7 +28,6 @@ define(['uiRouter','register'],function(){
 					$scope.account = '';
 					$scope.password = '';
 				}
-				
 			}
 		}])
 		;

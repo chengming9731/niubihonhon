@@ -32,11 +32,6 @@ define(['uiRouter'], function() {
 				}
 		})
 		.controller('categoryCtrl', ['$scope', '$http', 'productsData', '$state',function($scope, $http, productsData,$state) {
-			localStorage.setItem('isLogin','false');
-			var isLogin = localStorage.getItem('isLogin');
-			if(!(isLogin==='true')){
-				$state.go('login')
-			} else {
 			var page = 1;
 			//获取左侧产品分类菜单
 			productsData.getMultiget().then(function(res) {
@@ -98,7 +93,6 @@ define(['uiRouter'], function() {
 		function getNextPageData(){
 			page ++;
 			$scope.getSortMethod($scope.sortMethodIndex,page)
-		}
 		}
 		}]);
 		
