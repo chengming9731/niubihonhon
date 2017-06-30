@@ -11,7 +11,8 @@ require.config({
 		'shopcar': 'component/shopcar/shopcar',
 		'wrap':'component/wrap/wrap',
 		'login':'component/login/login',
-		'iconfont':'js/libs/iconfont'
+		'iconfont':'js/libs/iconfont',
+		'site':'component/wrap/mine/branch/site/site'
 	},
 	shim: {
 		'uiRouter': {
@@ -40,6 +41,9 @@ require.config({
 		},
 		'app': {
 			deps: ['uiRouter']
+		},
+		'site':{
+			deps:['uiRouter']
 		}
 	}
 
