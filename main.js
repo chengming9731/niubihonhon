@@ -17,7 +17,7 @@ require.config({
 		'jquery':'https://cdn.bootcss.com/jquery/2.2.4/jquery.min',
 		'register':'component/register/register',
 		'addsite':'component/wrap/mine/branch/site/addsite/addsite',
-		'orderform':'component/wrap/mine/branch/orderform/orderform'
+		'orderform':'component/wrap/mine/branch/orderform/orderform',
 		'chooseCountry':'component/chooseCountry/chooseCountry',
 		'findPassWord':'component/findPassWord/findPassWord',
 		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword'
@@ -51,7 +51,6 @@ require.config({
 			deps:['uiRouter']
 		},
 		'app': {
-<<<<<<< HEAD
 			deps: ['uiRouter']
 		},
 		'site':{
@@ -61,8 +60,6 @@ require.config({
 			deps:['uiRouter']
 		},
 		'orderform':{
-=======
->>>>>>> ff888d2c872e7a94b2eb1779df09873409b9dc82
 			deps:['uiRouter']
 		}
 	}

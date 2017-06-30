@@ -8,7 +8,7 @@ define(['uiRouter'],function(){
 				controller:'orderformCtlr'
 			});
 		})
-		.controller('orderformCtlr',['$scope','$state','$http',function($state,$scope,$http){
+		.controller('orderformCtlr',['$scope','$state','$http',function($scope,$state,$http){
 			$scope.headTitle = '订单列表';
 			$scope.headRight = '添加';
 			console.log('ni')

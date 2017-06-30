@@ -1,4 +1,4 @@
-define(['uiRouter'], function() {
+define(['uiRouter','jquery'], function() {
 	var categoryApp = angular.module('categoryModule', ['ui.router'])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$stateProvider.state('wrap.category', {
@@ -78,6 +78,7 @@ define(['uiRouter'], function() {
 			productsData.getMget().then(function(res) {
 				$scope.sketch = res.data.data.sketch.data.frontword;
 			})
+			
 			$(function(){
 				$('.main-right').on('scroll',function(){
 					if($('.main-right').scrollTop() >= $('.main-right-hot').height()){
