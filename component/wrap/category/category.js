@@ -1,5 +1,5 @@
-define(['uiRouter','jquery'], function() {
-	var categoryApp = angular.module('categoryModule', ['ui.router'])
+define(['uiRouter','jquery','speColumn'], function() {
+	var categoryApp = angular.module('categoryModule', ['ui.router','speColumnModule'])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$stateProvider.state('wrap.category', {
 				url: '/category',
@@ -95,6 +95,15 @@ define(['uiRouter','jquery'], function() {
 			page ++;
 			$scope.getSortMethod($scope.sortMethodIndex,page)
 		}
+		
+		
+		$scope.jump2column = function(json){
+			console.log(json);
+			localStorage.setItem('columnInfo',JSON.stringify(json));
+			$state.go('speColumn');
+		}
+		
+		
 		}]);
 		
 });

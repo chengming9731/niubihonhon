@@ -1,0 +1,5 @@
+#backHead{position: fixed;left: 0;top: 0;}
+#speColumn{width: 100%;height: 100%;overflow: hidden;}
+#speColumn .head{width:100%;position: fixed;left: 0;top: 1.333333rem;z-index: 1999;background: #FFFFFF;overflow: hidden;}
+#speColumn .head .hotCates{white-space:nowrap;overflow:scroll;overflow-y:hidden;padding:0.133333rem 0.233333rem;border-bottom: 0.013333rem solid #5e5e5e;}
+#speColumn .head .hotCates .hot-cate{display: inline-block;	margin: 0.133333rem;line-height: 1.333333rem;text-align: center;font-size: 0.4rem;color: #FFFFFF;background-size: 100% 100%;padding: 0 0.4rem;}
