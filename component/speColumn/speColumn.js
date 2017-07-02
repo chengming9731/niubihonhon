@@ -17,22 +17,23 @@ define(['uiRouter'],function(){
 			var callBack = 'callback=JSON_CALLBACK';
 			var info = {};
 			info.getApi = function(link,sort,page,minPrice,maxPrice){
+				console.log(link)
 				var qurrys= link.split('/');
 				var infos = qurrys[qurrys.length-1].split('&');
 				var action = 'action='+infos[0].split('?')[0];
 				var fcid = infos[0].split('?')[1];
 				var title = infos[1];
 				var acm = infos[2];	
-				var time = '_'+new Date().getTime();
+				var time = '_='+new Date().getTime();
 				var sort = sort ? 'sort='+sort : 'sort=pop';
 				var page = page ? 'page='+page : 'page =1';
 				var api 
 				if(minPrice && maxPrice){
-					var apiInfos = [baseUrl,_mguuid,ptp,other,action,fcid,title,acm,sort,page,time,callBack]
-					api = apiInfos.join('&');
-				} else {
 					var priceFilter = 'cpc_offset=0&offset=&minPrice='+minPrice+'&maxPrice='+maxPrice;
 					var apiInfos = [baseUrl,_mguuid,ptp,other,action,fcid,title,acm,sort,page,priceFilter,time,callBack]
+					api = apiInfos.join('&');
+				} else {
+					var apiInfos = [baseUrl,_mguuid,ptp,other,action,fcid,title,acm,sort,page,time,callBack]
 					api = apiInfos.join('&');
 				}
 				return api;
