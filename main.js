@@ -20,7 +20,8 @@ require.config({
 		'orderform':'component/wrap/mine/branch/orderform/orderform',
 		'chooseCountry':'component/chooseCountry/chooseCountry',
 		'findPassWord':'component/findPassWord/findPassWord',
-		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword'
+		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword',
+		'speColumn':'component/speColumn/speColumn'
 	},
 	shim: {
 		'uiRouter': {
