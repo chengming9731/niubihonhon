@@ -98,10 +98,10 @@ define(['uiRouter','jquery','speColumn'], function() {
 		
 		
 		$scope.jump2column = function(json){
-			console.log(json);
 			localStorage.setItem('columnInfo',JSON.stringify(json));
 			$state.go('speColumn');
 		}
+		
 		
 		
 		}]);
