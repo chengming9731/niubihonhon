@@ -24,8 +24,8 @@ define(['uiRouter'],function(){
 			$scope.goback=function(){
 				window.history.go(-1);
 			}
-			var shopcarProducts = JSON.parse(localStorage.getItem('shopcarProducts'));
-			console.log(shopcarProducts);
+			$scope.arrgoodslist = JSON.parse(localStorage.getItem('shopcarProducts'));
+			console.log($scope.arrgoodslist);
 		}])
 		
 });
