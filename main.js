@@ -22,7 +22,8 @@ require.config({
 		'findPassWord':'component/findPassWord/findPassWord',
 		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword',
 		'speColumn':'component/speColumn/speColumn',
-		'productDetail':'component/productDetail/productDetail'
+		'productDetail':'component/productDetail/productDetail',
+		'searchpagedel': 'component/searchpage/searchpagedel/searchpagedel'
 	},
 	shim: {
 		'uiRouter': {
@@ -50,6 +51,9 @@ require.config({
 			deps:['uiRouter']
 		},
 		'searchpage':{
+			deps:['uiRouter']
+		},
+		'searchpagedel':{
 			deps:['uiRouter']
 		},
 		'app': {

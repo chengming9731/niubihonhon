@@ -96,6 +96,7 @@ define(['uiRouter','jquery','speColumn'], function() {
 		
 		$scope.jump2column = function(json){
 			localStorage.setItem('columnInfo',JSON.stringify(json));
+			console.log(JSON.parse(localStorage.getItem('columnInfo')));
 			$state.go('speColumn');
 		}
 		

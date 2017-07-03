@@ -9,11 +9,26 @@
 	<div class="button">去逛逛</div>
 </div>
 <div class="shop">
-	<h3 class="shop-head">
+	<!--<h3 class="shop-head">
 		<input type="checkbox" class="shop-checkbox" ng-class={true:'shop-checkbox',false:'shop-checkboxed'}[choose0] ng-click='change0(type)'>
 		<a href="">第一个店铺</a>
 		<span>领券&nbsp></span>
-	</h3>
+	</h3>-->
+	<li class="goodslist">
+		<input type="checkbox" ng-class={true:'goodslist-check',false:'goodslist-checked'}[choose] ng-click='change(type)'>
+		<a href="" class="goodslist-pic"><img src="http://s3.mogucdn.com/mlcdn/c45406/170423_7c7bbg97i251ck87jf8jj91bdd8d7_640x960.jpg_220x330.jpg" alt="" /></a>
+		<div class="goodslist-de">
+			<div class="goodslist-desc">
+				<a href=""><h5>冠希哥体恤</h5></a>
+				<p class="goodslist-desc-ts">颜色：黑色；尺码：均码；</p>
+				<div class="goodslist-desc-price">
+				<span class="goodslist-desc-price-now">￥10</span>
+				<span class="goodslist-desc-price-origin">10000</span>
+				<span class="goodslist-desc-count">x5</span>
+				</div>
+			</div>
+		</div>
+	</li> 
 	<li class="goodslist">
 		<input type="checkbox" ng-class={true:'goodslist-check',false:'goodslist-checked'}[choose] ng-click='change(type)'>
 		<a href="" class="goodslist-pic"><img src="http://s3.mogucdn.com/mlcdn/c45406/170423_7c7bbg97i251ck87jf8jj91bdd8d7_640x960.jpg_220x330.jpg" alt="" /></a>
