@@ -24,7 +24,8 @@ require.config({
 		'speColumn':'component/speColumn/speColumn',
 		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
 		'newProduct':'component/newProduct/newProduct',
-		'oneGroup':'component/oneGroup/oneGroup'
+		'oneGroup':'component/oneGroup/oneGroup',
+		'productDetail':'component/productDetail/productDetail'
 	},
 	shim: {
 		'uiRouter': {
