@@ -20,6 +20,7 @@ require.config({
 		'chooseCountry':'component/chooseCountry/chooseCountry',
 		'findPassWord':'component/findPassWord/findPassWord',
 		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword',
+<<<<<<< HEAD
 		'obligat':'component/wrap/mine/branch/orderform/obligat/obligat',
 		'commonality':'component/wrap/mine/branch/orderform/commonality',
 		'whole':'component/wrap/mine/branch/orderform/whole/whole',
@@ -34,6 +35,13 @@ require.config({
 		'spellfailure':'component/wrap/mine/branch/booking/spellfailure/spellfailure',
 		'collect':'component/wrap/mine/branch/collect/collect',
 		'treasure':'component/wrap/mine/branch/collect/treasure/treasure'
+=======
+		'speColumn':'component/speColumn/speColumn',
+		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
+		'newProduct':'component/newProduct/newProduct',
+		'oneGroup':'component/oneGroup/oneGroup',
+		'productDetail':'component/productDetail/productDetail'
+>>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 	},
 	shim: {
 		'uiRouter': {
