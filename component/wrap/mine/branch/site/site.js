@@ -16,6 +16,8 @@ define(['uiRouter'],function(){
 			};
 			$scope.headRightClick = function(){
 				window.history.go(1);
-			}
+			};
+			$scope.noData='您还没有任何收货地址哦～';
+			$scope.noUrl='https://s10.mogucdn.com/p2/170222/upload_1ga8374ha4c1e315k293bce18d3b9_514x258.png';
 		}])
 });

@@ -1,5 +1,5 @@
-define(['uiRouter'],function(){
-	var mineApp = angular.module('mineModule',['ui.router'])
+define(['uiRouter','login','obligat','collect'],function(){
+	var mineApp = angular.module('mineModule',['ui.router','loginModule','obligatModule','collectModule'])
 		.config(function($stateProvider,$urlRouterProvider){
 			$stateProvider.state('wrap.mine',{
 				url:'/mine',
@@ -8,7 +8,19 @@ define(['uiRouter'],function(){
 				controller:'mineCtlr',
 			});
 		})
-		.controller('mineCtlr',['$state','$http',function($state,$http){
-
+		.controller('mineCtlr',['$scope','$state','$http',function($scope,$state,$http){
+			var isLogin = localStorage.getItem('isLogin');
+				if(!(isLogin=='true')){
+					$state.go('login')
+				}
+				
+			$scope.logout = function(){
+				localStorage.setItem('isLogin','false');
+				$state.go('login')
+			}
+			$scope.jump2commonality = function(index){
+				localStorage.setItem('commonalityIndex',index);
+				$state.go('commonality');
+			}
 		}])
 });
