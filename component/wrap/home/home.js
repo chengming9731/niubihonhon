@@ -41,10 +41,9 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			this.swiper = function() {
 				$timeout(function() {
 					var mySwiper = new Swiper('.swiper-container', {
-						autoplay: 1000,
-						observer: true,
-						observeParents: true,
-						//autoplay;DisableOnInteraction:true,
+						autoplay: 1500,
+//						observer: true,
+//						observeParents: true,
 						loop: true,
 						// 如果需要分页器
 						pagination: '.swiper-pagination',
