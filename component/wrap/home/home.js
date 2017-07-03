@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-define(['uiRouter', 'swiper', 'jquery'], function() {
-	var homeApp = angular.module('homeModule', ['ui.router'])
-=======
 define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], function() {
 	var homeApp = angular.module('homeModule', ['ui.router','daPaiManJianModule','newProductModule','oneGroupModule'])
->>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 		.config(function($stateProvider, $urlRouterProvider) {
 			$stateProvider.state('wrap.home', {
 				url: '/home',
@@ -37,12 +32,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				//搜索框默认
 				this.getMorenKuang = function() {
 					return $http.jsonp('http://list.mogujie.com/module/mget?code=sketch%2ChotWord&callback=JSON_CALLBACK')
-<<<<<<< HEAD
-=======
-				},
-				this.getaaa = function  () {
-					return $http.jsonp('http://mce.mogucdn.com/jsonp/multiget/3?pids=15713%2C41512&callback=JSON_CALLBACK')
->>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 				}
 		})
 		.service('swiper', ['$timeout', function($timeout) {
@@ -52,11 +41,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 						autoplay: 1000,
 						observer: true,
 						observeParents: true,
-<<<<<<< HEAD
-						//							autoplay;DisableOnInteraction:true,
-=======
-						//autoplay;DisableOnInteraction:true,
->>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 						loop: true,
 						// 如果需要分页器
 						pagination: '.swiper-pagination',
@@ -67,11 +51,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 		.controller('homeCtrl', ['$scope', '$http', 'getData', 'swiper', '$interval', '$state', function($scope, $http, getData, swiper, $interval, $state) {
 			var page = 1;
 			getData.getAllData().then(function(res) {
-<<<<<<< HEAD
-				console.log(res);
-=======
-//				console.log(res);
->>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 				$scope.swiperList = res.data.data[51822].list;
 				$scope.dapaiList = res.data.data[51827].list;
 				console.log($scope.dapaiList);
@@ -110,19 +89,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				$scope.hotMarket = res.data.data[51836].list;
 			})
 			//猜你喜欢
-<<<<<<< HEAD
-			getData.getCaiNiXiHuan(page).then(function(res) {
-				//					console.log(res);
-				$scope.caiNiXihuanTitle = res.data.result.wall.title;
-				$scope.caiNiXihuan = res.data.result.wall.docs;
-			})
-			$(function() {
-				$(".home-wrap").on('scroll', function() {
-					console.log($('.home-wrap').scrollTop());
-					if($(this).scrollTop() > 12000) {
-						getNextPage();
-						console.log(page);
-=======
 			getData.getCaiNiXiHuan().then(function(res) {
 				console.log(res);
 				$scope.caiNiXihuanTitle = res.data.result.wall.title;
@@ -135,7 +101,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 					if($(this).scrollTop() >= $('#search').height()+$('.swiper-container').height() + $('.home-dapai').height()+
 					$('.home-seckill').height()+$('.home-sales').height()+$('.hot-market').height()+$('.guessYouLove-row').height() -$('.home-wrap').height() ) {
 						getNextPage();
->>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 					}
 				})
 
@@ -145,23 +110,8 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				page++;
 				getData.getCaiNiXiHuan(page).then(function(res) {
 					$scope.caiNiXihuanTitle = res.data.result.wall.title;
-<<<<<<< HEAD
 					$scope.caiNiXihuan = res.data.result.wall.docs;
 					$scope.currentArrar = [];
-					if(res) {
-						$scope.caiNiXihuanData = res.data.result.wall.docs;
-						console.log($scope.caiNiXihuanData);
-						var arr = $scope.currentArrar;
-						console.log(typeof arr);
-						//						$scope.currentArrar = arr.concat(res.data.result.wall.docs);
-						//						console.log(arr);
-					}
-					//					else {
-					//						page --;
-					//					}
-				})
-			}
-=======
 					if(res) {
 						var arr = res.data.result.wall.docs;
 						$scope.caiNiXihuan = $scope.caiNiXihuan.concat(arr);
@@ -183,7 +133,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 					$state.go('oneGroup');
 				}
 			}
->>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 
 		}])
 });
