@@ -21,7 +21,10 @@ require.config({
 		'chooseCountry':'component/chooseCountry/chooseCountry',
 		'findPassWord':'component/findPassWord/findPassWord',
 		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword',
-		'speColumn':'component/speColumn/speColumn'
+		'speColumn':'component/speColumn/speColumn',
+		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
+		'newProduct':'component/newProduct/newProduct',
+		'oneGroup':'component/oneGroup/oneGroup'
 	},
 	shim: {
 		'uiRouter': {

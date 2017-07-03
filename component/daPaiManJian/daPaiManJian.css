@@ -1,0 +1,98 @@
+/*头部*/
+.wall_nav_box{ width: 100%;height:1.1rem;max-width: 750px; margin: 0 auto;z-index: 1000;overflow: hidden;position: fixed;top: 0;}
+.t_text{display: block;width: 1.5rem;height: 1.1rem;line-height: 1.1rem;text-align: center;font-size: .38rem;color: #A1A1A1;}
+.nav-list{z-index: 120;width: 100%;height: 1.1rem;max-width: 750px; margin: 0 auto;overflow: hidden;top: 0;}   
+.nav_mid_box{width: 100%;font-family: "PingFang SC";background: #333;}
+.nav_tab_all{width: 1.7rem;height: 1.1rem;position: relative;z-index: 22;float: left;line-height: 1.1rem;text-align: center;font-size: .38rem;color: #A1A1A1;	}
+.nav_tabs_scroll{height: 1.1rem;overflow: hidden;position: relative;}
+.scroll_box{width: 100%;height: 1.1rem;white-space: nowrap;overflow: scroll;overflow-y: hidden;font-size: 0;}
+.nav_tab{height:1.1rem;width: 1.7rem;line-height:1.1rem;display: inline-block;margin-bottom: -30px;}
+
+/*轮播*/
+.dapai-wrap{    padding-top: 1.11rem; overflow: auto; font-size: .3rem; }
+.dapai-wrap img{width: 100%;}
+.swiper-container1{width: 100%;}
+
+/*block-img*/
+.margin-block-box{width: 100%;     margin: 0 auto;position: relative;}
+.bg_imgbox img{display: block;width: 100%;background: rgb(238,238,238) }
+
+/*banner*/
+.brandEntry{width: 100%;
+       height: 5.6rem;
+    background: #fff;
+    padding: .2rem 0 .2rem .2rem;
+    overflow: hidden;}
+    .brandEntry_box{
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: .2rem;
+    }
+  .banner-box{
+  	width: 31.7%;
+  	position: relative;
+    float: left;
+    margin-right: .16rem;
+    border-radius: .06rem;
+    overflow: hidden;
+  }  
+  .banner-box img{
+  	width: 100%;
+  }
+  
+  .banner_title{
+  	
+ 
+  width: 90%;
+    height: .46rem;
+    line-height: .46rem;
+    font-size: .46rem;
+    color: #333;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+ }
+ .banner_description{
+ 	    width: 90%;
+    height: .34rem;
+    line-height: .34rem;
+    font-size: .32rem;
+    color: #999;
+    font-weight: 300;
+    position: absolute;
+    left: 3%;
+    top: 21%;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+ }
+.brandGoods{
+	width: 100%;
+	background: rgb(238,238,238);
+	    margin-top: 0.2rem;
+    margin-bottom: 0rem;
+}
+.brandGoods_title{width: 100%;
+    height: 0.9rem;
+    overflow: hidden;
+    padding: 0 .2rem;
+    background: white;}
+.brandGoods_title_text{
+	    width: 5.5rem;
+    height: 100%;
+    line-height: .9rem;
+    overflow: hidden;
+    font-size: .4rem;
+    color: #333;
+    float: left;
+}
+.brandGoods_title_more{
+	    display: block;
+    float: right;
+    position: relative;
+    width: 1.5rem;
+    height: .9rem;
+    overflow: hidden;
+    margin-top: .2rem;
+}
