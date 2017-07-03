@@ -10,30 +10,30 @@
 		</div>
 	</div>
 	<div id='conter-box'>
-		<div class="conter-indent">
+		<div class="conter-indent" >
 			<a href="#">
-				<div class="conter-indent-ico">
+				<div class="conter-indent-ico" ui-sref='commonality' ng-click="jump2commonality(0)">
 					<p><span><i class="iconfont icon-dingdan" id="ico"></i></span></p>
-					<p ui-sref='orderform'>我的订单</p>
+					<p >我的订单</p>
 					<ui-view></ui-view>
 				</div>
 			</a>
 			<div class="order-tips">
-				<a href="" ui-sref='.home'><i class="iconfont icon-daifukuan"></i>待付款</a>
-				<a ui-sref='.category' href=""><i class="iconfont icon-daishouhuo-copy"></i>待收货</a>
-				<a href="" ui-sref='.shopcar'><i class="iconfont icon-daipingjia"></i>待评价</a>
-				<a href="" ui-sref='.mine'><i class="iconfont icon-shouhoubaozhang"></i>售后</a>
+				<a href="" ng-click="jump2commonality(1)"><i class="iconfont icon-daifukuan"></i>待付款</a>
+				<a href="" ng-click="jump2commonality(2)"><i class="iconfont icon-daishouhuo-copy"></i>待收货</a>
+				<a href="" ng-click="jump2commonality(3)"><i class="iconfont icon-daipingjia"></i>待评价</a>
+				<a href="" ng-click="jump2commonality(4)"><i class="iconfont icon-shouhoubaozhang"></i>售后</a>
 			</div>
 		</div>
 		<div class="conter-tips">
 			<a href="#">
 				<div class="conter-indent-ico">
 					<p><span><i class="iconfont icon-gouwuchekong" id="ico"></i></span></p>
-					<p>我的购物车</p>
+					<p><a href="http://127.0.0.1:8020/jinpinji(1)/index.html#/shopcar">我的购物车</a></p>
 				</div>
 			</a>
 			<a href="#">
-				<div class="conter-indent-ico">
+				<div class="conter-indent-ico" ui-sref='booking'>
 					<p><span style="background: #ff6600;"><i class="iconfont icon-wode" id="ico"></i></span></p>
 					<p>我的拼团</p>
 				</div>
@@ -45,7 +45,7 @@
 				</div>
 			</a>
 			<a href="#">
-				<div class="conter-indent-ico">
+				<div class="conter-indent-ico" ui-sref='collect'>
 					<p><span style="background: #fd9619;"><i class="iconfont icon-shoucang6" id="ico"></i></span></p>
 					<p>我收藏的商品</p>
 				</div>
@@ -83,7 +83,7 @@
 			</a>
 		</div>
 		<div class='out-register'>
-			<a>退出登录</a>
+			<a ng-click="logout()">退出登录</a>
 		</div>
 	</div>
 </div>
