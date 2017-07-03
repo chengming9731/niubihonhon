@@ -66,7 +66,6 @@ define(['uiRouter','jquery','speColumn'], function() {
 					if(res){
 						var arr = $scope.sortProductsArray ? $scope.sortProductsArray : [];
 						$scope.sortProductsArray = arr.concat(res.data.result.wall.docs);
-						console.log(arr);
 					} else {
 						page --;
 					}
