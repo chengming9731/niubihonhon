@@ -32,19 +32,15 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				//搜索框默认
 				this.getMorenKuang = function() {
 					return $http.jsonp('http://list.mogujie.com/module/mget?code=sketch%2ChotWord&callback=JSON_CALLBACK')
-				},
-				this.getaaa = function  () {
-					return $http.jsonp('http://mce.mogucdn.com/jsonp/multiget/3?pids=15713%2C41512&callback=JSON_CALLBACK')
 				}
 		})
 		.service('swiper', ['$timeout', function($timeout) {
 			this.swiper = function() {
 				$timeout(function() {
 					var mySwiper = new Swiper('.swiper-container', {
-						autoplay: 1000,
+						autoplay: 1500,
 						observer: true,
 						observeParents: true,
-						//autoplay;DisableOnInteraction:true,
 						loop: true,
 						// 如果需要分页器
 						pagination: '.swiper-pagination',
@@ -55,7 +51,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 		.controller('homeCtrl', ['$scope', '$http', 'getData', 'swiper', '$interval', '$state', function($scope, $http, getData, swiper, $interval, $state) {
 			var page = 1;
 			getData.getAllData().then(function(res) {
-//				console.log(res);
 				$scope.swiperList = res.data.data[51822].list;
 				$scope.dapaiList = res.data.data[51827].list;
 				console.log($scope.dapaiList);
@@ -115,6 +110,8 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				page++;
 				getData.getCaiNiXiHuan(page).then(function(res) {
 					$scope.caiNiXihuanTitle = res.data.result.wall.title;
+					$scope.caiNiXihuan = res.data.result.wall.docs;
+					$scope.currentArrar = [];
 					if(res) {
 						var arr = res.data.result.wall.docs;
 						$scope.caiNiXihuan = $scope.caiNiXihuan.concat(arr);

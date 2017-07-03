@@ -33,7 +33,8 @@ define(['uiRouter'], function() {
 						sTabPage = 'shopcar';
 						break;
 					case '3':
-						sTabPage = 'wrap.mine';
+					
+						sTabPage ='wrap.mine'
 						break;
 				}
 				return sTabPage;
