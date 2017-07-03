@@ -15,7 +15,7 @@
 		<span>领券&nbsp></span>
 	</h3>-->
 	<li class="goodslist" ng-repeat='item in arrgoodslist track by $index'>
-		<input type="checkbox" ng-class={true:'goodslist-check',false:'goodslist-checked'}[choose] ng-click='change(type)'>
+		<input type="checkbox" ng-class={true:'goodslist-check',false:'goodslist-checked'}[choose[$index]] ng-click='change($index)'>
 		<a href="" class="goodslist-pic"><img src="{{item.img}}" alt="" /></a>
 		<div class="goodslist-de">
 			<div class="goodslist-desc">
