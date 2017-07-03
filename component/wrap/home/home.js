@@ -1,5 +1,5 @@
-define(['uiRouter', 'swiper', 'jquery'], function() {
-	var homeApp = angular.module('homeModule', ['ui.router'])
+define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], function() {
+	var homeApp = angular.module('homeModule', ['ui.router','daPaiManJianModule','newProductModule','oneGroupModule'])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$stateProvider.state('wrap.home', {
 				url: '/home',
@@ -35,6 +35,9 @@ define(['uiRouter', 'swiper', 'jquery'], function() {
 				//搜索框默认
 				this.getMorenKuang = function() {
 					return $http.jsonp('http://list.mogujie.com/module/mget?code=sketch%2ChotWord&callback=JSON_CALLBACK')
+				},
+				this.getaaa = function  () {
+					return $http.jsonp('http://mce.mogucdn.com/jsonp/multiget/3?pids=15713%2C41512&callback=JSON_CALLBACK')
 				}
 		})
 		.service('swiper', ['$timeout', function($timeout) {
@@ -55,9 +58,10 @@ define(['uiRouter', 'swiper', 'jquery'], function() {
 		.controller('homeCtrl', ['$scope', '$http', 'getData', 'swiper', '$interval', '$state', function($scope, $http, getData, swiper, $interval, $state) {
 			var page = 1;
 			getData.getAllData().then(function(res) {
-				console.log(res);
+//				console.log(res);
 				$scope.swiperList = res.data.data[51822].list;
 				$scope.dapaiList = res.data.data[51827].list;
+				console.log($scope.dapaiList);
 				swiper.swiper();
 			})
 			getData.getTime().then(function(res) {
@@ -101,11 +105,10 @@ define(['uiRouter', 'swiper', 'jquery'], function() {
 			
 			$(function() {
 				$(".home-wrap").on('scroll', function() {
-					console.log($('.home-wrap').scrollTop());
+//					console.log($('.home-wrap').scrollTop());
 					if($(this).scrollTop() >= $('#search').height()+$('.swiper-container').height() + $('.home-dapai').height()+
 					$('.home-seckill').height()+$('.home-sales').height()+$('.hot-market').height()+$('.guessYouLove-row').height() -$('.home-wrap').height() ) {
 						getNextPage();
-						console.log(page);
 					}
 				})
 
@@ -116,14 +119,25 @@ define(['uiRouter', 'swiper', 'jquery'], function() {
 				getData.getCaiNiXiHuan(page).then(function(res) {
 					$scope.caiNiXihuanTitle = res.data.result.wall.title;
 					if(res) {
-						console.log($scope.caiNiXihuan);
 						var arr = res.data.result.wall.docs;
-						console.log(arr);
 						$scope.caiNiXihuan = $scope.caiNiXihuan.concat(arr);
 					}else{
 						page--;
 					}
 				})
+			}
+			//路由跳转
+			$scope.chooseModel = function  (title) {
+				console.log(title)
+				if(title == '大牌满减'){
+					$state.go('daPaiManJian');
+				}
+				else if(title == '新品首发'){
+					$state.go('newProduct');
+				}
+				else if(title == '1元拼团'){
+					$state.go('oneGroup');
+				}
 			}
 
 		}])
