@@ -22,15 +22,11 @@ require.config({
 		'findPassWord':'component/findPassWord/findPassWord',
 		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword',
 		'speColumn':'component/speColumn/speColumn',
-<<<<<<< HEAD
 		'productDetail':'component/productDetail/productDetail',
-		'searchpagedel': 'component/searchpage/searchpagedel/searchpagedel'
-=======
+		'searchpagedel': 'component/searchpage/searchpagedel/searchpagedel',
 		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
 		'newProduct':'component/newProduct/newProduct',
 		'oneGroup':'component/oneGroup/oneGroup',
-		'productDetail':'component/productDetail/productDetail'
->>>>>>> 809809ae7ab466ff2d289e1412e39fbbab198fc4
 	},
 	shim: {
 		'uiRouter': {
