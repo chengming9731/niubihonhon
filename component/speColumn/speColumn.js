@@ -82,6 +82,7 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 				$http.jsonp(api).then(function(res) {
 					if(res) {
 						var result = res.data.result;
+						console.log(result)
 						if($scope.page > 1) {
 							$scope.wall = $scope.wall.concat(result.wall.docs);
 						} else {
@@ -90,7 +91,6 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 							$scope.sortFilter = result.sortFilter;
 							$scope.priceFilter = result.priceFilter;
 						}
-
 					} else {
 						if($scope.page > 1) {
 							$scope.page--;
@@ -137,10 +137,12 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 			}
 
 			$scope.jump2product = function(info) {
-				var productsList = [];
-				productsList.push(info);
-				localStorage.setItem('prodcutsList', JSON.stringify(productsList));
-				$state.go('productDetail');
+				if(info.tradeItemId){
+					var productsList = [];
+					productsList.push(info);
+					localStorage.setItem('prodcutsList', JSON.stringify(productsList));
+					$state.go('productDetail');
+				}
 			}
 			//			下拉分页加载数据事件
 			$('#speColumn').on('scroll', lazyLoad);
