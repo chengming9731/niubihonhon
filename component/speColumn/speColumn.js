@@ -132,6 +132,7 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 				initData();
 			}
 
+
 			$scope.jump2product = function(info) {
 				if(info.tradeItemId){
 					var productsList = [];
