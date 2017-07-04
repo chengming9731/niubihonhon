@@ -14,7 +14,7 @@ define(['uiRouter'], function () {
                 return $http.jsonp('http://list.mogujie.com/search?_version=61&q='+localStorage.getItem('title')+'&cKey=46&minPrice=&_mgjuuid=79079674-4cdb-40fb-afb8-3d1a18378001&ppath=&page=1&maxPrice=&sort=pop&userId=114nr9a&cpc_offset=&priceList=&_='+currentTime+'&callback=JSON_CALLBACK')
             }
         })
-        .controller('searchpagedelCtlr', ['$scope', '$http', 'searchData', function ($scope, $http, searchData) {
+        .controller('searchpagedelCtlr', ['$scope', '$http', 'searchData','$state', function ($scope, $http, searchData,$state) {
         	initData();
             function initData(){
             	searchData.getsearchData().then(function (res) {
@@ -45,6 +45,11 @@ define(['uiRouter'], function () {
 				$scope.isPriceFliterShow = false;
 				initData();
 			}
-            
+            $scope.jump2product=function(item){
+            	var productsList = [];
+				productsList.push(item);
+				localStorage.setItem('prodcutsList', JSON.stringify(productsList));
+				$state.go('productDetail');
+			}        
         }])
 })
