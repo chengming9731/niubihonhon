@@ -1,3 +1,14 @@
-<div class='collect-public'>
+<!--<div class='collect-public'>
 	<herd-location></herd-location>	
-</div>
+</div>-->
+<ul class="head-treasure">
+	<li ng-repeat="item in collection">
+		<div class="treasure-img"><img src="{{item.show.img}}"/></div>
+		<div class="treasure-right">
+			<p></p>
+			<p></p>
+			<p>¥<span>¥</span></p>
+			<p>找相似</p>
+		</div>
+	</li>
+</ul>

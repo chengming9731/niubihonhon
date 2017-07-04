@@ -38,7 +38,8 @@ require.config({
 		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
 		'newProduct':'component/newProduct/newProduct',
 		'oneGroup':'component/oneGroup/oneGroup',
-		'productDetail':'component/productDetail/productDetail'
+		'productDetail':'component/productDetail/productDetail',
+		'mystore':'component/wrap/mine/branch/collect/mystore/mystore'
 	},
 	shim: {
 		'uiRouter': {
@@ -102,6 +103,9 @@ require.config({
 			deps:['uiRouter']
 		},
 		'treasure':{
+			deps:['uiRouter']
+		},
+		'mystore':{
 			deps:['uiRouter']
 		}
 	}

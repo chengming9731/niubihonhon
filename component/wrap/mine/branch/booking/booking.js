@@ -20,5 +20,6 @@ define(['uiRouter','total','sthObligation','spelling','spellgroup','spellfailure
 			$scope.goBack=function(){
 				$state.go('wrap.mine');
 			};
+			$state.go('booking.total')
 		}])
 })

@@ -127,6 +127,7 @@ define(['uiRouter', 'jquery'], function() {
 				}
 				collectionProducts.unshift(productInfo);
 				localStorage.setItem('collectionProducts',JSON.stringify(collectionProducts));
+				console.log(collectionProducts)
 			}
 //			立即购买
 			$scope.order = function(productInfo){
