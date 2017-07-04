@@ -35,6 +35,8 @@ require.config({
 		'collect':'component/wrap/mine/branch/collect/collect',
 		'treasure':'component/wrap/mine/branch/collect/treasure/treasure',
 		'speColumn':'component/speColumn/speColumn',
+		'productDetail':'component/productDetail/productDetail',
+		'searchpagedel': 'component/searchpage/searchpagedel/searchpagedel',
 		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
 		'newProduct':'component/newProduct/newProduct',
 		'oneGroup':'component/oneGroup/oneGroup',
@@ -67,6 +69,9 @@ require.config({
 			deps:['uiRouter']
 		},
 		'searchpage':{
+			deps:['uiRouter']
+		},
+		'searchpagedel':{
 			deps:['uiRouter']
 		},
 		'app': {

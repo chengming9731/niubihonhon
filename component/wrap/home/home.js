@@ -25,6 +25,9 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				this.getHotMarket = function() {
 					return $http.jsonp('http://mce.mogucdn.com/jsonp/multiget/3?pids=51822%2C51827%2C41119%2C51833%2C51836%2C4604&callback=JSON_CALLBACK')
 				},
+				this.getCaiNiXiHuan = function  () {
+					return $http.jsonp('http://list.mogujie.com/wall/s?q=%E9%9E%8B%E5%AD%90&acm=3.mce.1_10_.37705.28553.qtIkXqo2kaNSe.p_0_615187923-mid_37705-lc_201&ptp=m1.fKiTO.0.0.DMRauh&callback=JSON_CALLBACK')
+				},
 				//猜你喜欢
 				this.getCaiNiXiHuan = function(page) {
 					return $http.jsonp('https://list.mogujie.com/search?cKey=h5-shopping&fcid=&pid=9750&searchTag=&sort=pop&page=' + page + '&_version=61&_=1498814598150&callback=JSON_CALLBACK')
