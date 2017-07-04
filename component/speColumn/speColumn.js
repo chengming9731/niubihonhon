@@ -137,10 +137,12 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 			}
 
 			$scope.jump2product = function(info) {
+				$scope.treasu = JSON.parse(localStorage.getItem('treasu'));
 				var productsList = [];
 				productsList.push(info);
 				localStorage.setItem('prodcutsList', JSON.stringify(productsList));
 				$state.go('productDetail');
+				localStorage.removeItem('treasu')
 			}
 			//			下拉分页加载数据事件
 			$('#speColumn').on('scroll', lazyLoad);

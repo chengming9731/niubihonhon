@@ -9,16 +9,31 @@ define(['uiRouter'], function() {
 			});
 		})
 		.controller('treasureCtr', ['$scope', '$state', '$http', function($scope, $state, $http) {
-			// localStorage.clear();清除数据
+			//localStorage.clear();清除数据
 			var collectionProducts=JSON.parse(localStorage.getItem('collectionProducts'));
-			//if(collectionProducts.length>0){
-				$scope.collection=collectionProducts
-				console.log($scope.collection)
-			//}
+			if(collectionProducts){
+				$scope.show=false;
+				$scope.hide=true;
+				angular.forEach(collectionProducts,function(data){
+					if(data.tradeItemId){
+						$scope.collection=collectionProducts;
+					}
+				})
+			}else{
+				$scope.show=true;
+				$scope.hide=false;
+				console.log(2)
+				$scope.noData='你还没有收藏任何商品';
+				$scope.noUrl='https://s10.mogucdn.com/p2/161118/upload_8djbjd0daffce09e0h7e5g564bcbi_479x238.jpg';
+			}
+			$scope.treasur=function(enshrine){
+				console.log(enshrine)
+				var treasu=[];
+				treasu.push(enshrine);
+				localStorage.setItem('treasu', JSON.stringify(treasu));
+				$state.go('productDetail')
+			}
 			
 			
-			
-			$scope.noData='你还没有收藏任何商品';
-			$scope.noUrl='https://s10.mogucdn.com/p2/161118/upload_8djbjd0daffce09e0h7e5g564bcbi_479x238.jpg';
 		}])
 });

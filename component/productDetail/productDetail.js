@@ -46,9 +46,20 @@ define(['uiRouter', 'jquery'], function() {
 
 			function initData() {
 				$scope.ishide = true;
+				$scope.treasu = JSON.parse(localStorage.getItem('treasu'));
 				$scope.productsList = JSON.parse(localStorage.getItem('prodcutsList'))
-				$scope.productInfo = $scope.productsList[0];
+				console.log($scope.treasu)
+				if($scope.treasu){
+					$scope.productsList=$scope.treasu;
+					$scope.productInfo = $scope.productsList[0];
+				}else{
+					$scope.productInfo = $scope.productsList[0];
+				}
+				
+				
+				
 				$scope.similarityProducts = [];
+				console.log($scope.productInfo)
 				//				产品数据
 				$http.jsonp(api.getProductApi($scope.productInfo.tradeItemId))
 					.then(function(res) {
@@ -127,6 +138,7 @@ define(['uiRouter', 'jquery'], function() {
 			}
 //			收藏产品
 			$scope.collectProduct = function(productInfo){
+				console.log(productInfo)
 				var collectionProducts = JSON.parse(localStorage.getItem('collectionProducts'));
 				if(!collectionProducts){
 					collectionProducts = [];
