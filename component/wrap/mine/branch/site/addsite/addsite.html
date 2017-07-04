@@ -10,15 +10,23 @@
 	</div>
 	<div class='consignee'>
 		<p>省份</p>
-		<input />
+		<select ng-change="citie(citieName)" ng-model="citieName">
+			<option ng-repeat="item in cities" >{{item.name}}</option>
+		</select>
 	</div>
 	<div class='consignee'>
 		<p>城市</p>
-		<input />
+		<select ng-change="town(townName)" ng-model="townName">
+			<option>请选择</option>
+			<option ng-repeat="item1 in urban" ng-if="$index>0">{{item1.name}}</option>
+		</select>
 	</div>
 	<div class='consignee'>
 		<p>地区</p>
-		<input />
+		<select ng-model="areaName">
+			<option>请选择</option>
+			<option ng-repeat='item2 in region' ng-if="$index>0">{{item2.name}}</option>
+		</select>
 	</div>
 	<div class='addsite-particular'>
 		<div class="particu"> 

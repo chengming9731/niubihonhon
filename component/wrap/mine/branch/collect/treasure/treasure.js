@@ -22,7 +22,6 @@ define(['uiRouter'], function() {
 			}else{
 				$scope.show=true;
 				$scope.hide=false;
-				console.log(2)
 				$scope.noData='你还没有收藏任何商品';
 				$scope.noUrl='https://s10.mogucdn.com/p2/161118/upload_8djbjd0daffce09e0h7e5g564bcbi_479x238.jpg';
 			}
@@ -32,8 +31,6 @@ define(['uiRouter'], function() {
 				treasu.push(enshrine);
 				localStorage.setItem('treasu', JSON.stringify(treasu));
 				$state.go('productDetail')
-			}
-			
-			
+			}			
 		}])
 });

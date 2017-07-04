@@ -13,10 +13,18 @@ define(['uiRouter','treasure','mystore'],function(){
 			$scope.goBack=function(){
 				$state.go('wrap.mine');
 			};
-			$scope.collect=0;
+			var index = localStorage.getItem('collectStore');
+			var rout ='collect.treasure';
+				switch(index){
+				case '1':
+					rout='collect.mystore'
+					break;
+				}
+			$scope.collect=index;
+//			$scope.collect=0;
 			$scope.collec=function(index){
 				$scope.collect=index;
 			};
-			$state.go('collect.treasure')
+			$state.go(rout)
 		}])
 	})
