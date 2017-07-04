@@ -53,7 +53,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			getData.getAllData().then(function(res) {
 				$scope.swiperList = res.data.data[51822].list;
 				$scope.dapaiList = res.data.data[51827].list;
-				console.log($scope.dapaiList);
+//				console.log($scope.dapaiList);
 				swiper.swiper();
 			})
 			getData.getTime().then(function(res) {
@@ -119,7 +119,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			}
 			//路由跳转
 			$scope.chooseModel = function  (title) {
-				console.log(title)
+//				console.log(title)
 				if(title == '大牌满减'){
 					$state.go('daPaiManJian');
 				}
@@ -135,6 +135,13 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				var columnInfoList = [];
 				columnInfoList.push(info);
 				localStorage.setItem('columnInfoList',JSON.stringify(columnInfoList));
+				$state.go('speColumn');
+			}
+			$scope.jump2Product = function  (info) {
+				var productInfoList = [];
+				productInfoList.push(info);
+				localStorage.setItem('prodcutsList',JSON.stringify(productInfoList));
+				$state.go('productDetail');
 			}
 		}])
 });

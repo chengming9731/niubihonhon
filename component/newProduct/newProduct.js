@@ -13,18 +13,9 @@ define(['uiRouter','jquery'],function  () {
 		this.getData = function  (keyword) {
 			return $http.jsonp('http://qiang.mogujie.com/jsonp/actGroupItem/1?groupKey=11'+ keyword+'&bizKey=rush_main&isNeedNotice=1&callback=JSON_CALLBACK')
 		}
-//		,
-//		this.getShoes = function(){
-//			return $http.jsonp('http://qiang.mogujie.com/jsonp/actGroupItem/1?groupKey=11u&bizKey=rush_main&isNeedNotice=1&callback=JSON_CALLBACK')
-//		},
-//		this.getMore = function(){
-//			return $http.jsonp('http://qiang.mogujie.com/jsonp/actGroupItem/1?groupKey=11w&bizKey=rush_main&isNeedNotice=1&callback=JSON_CALLBACK')
-//		}
 	})
 
-	.controller('newProductCtrl',['$scope','$state','$http','newData',function  ($scope,$state,$http,newData) {
-//		$scope.name = '新品首发';
-			
+	.controller('newProductCtrl',['$scope','$state','$http','newData',function  ($scope,$state,$http,newData) {		
 		var keyword = "q";
 			catchData();
 			$('.nav-item').eq(0).addClass("avtive");
@@ -49,6 +40,13 @@ define(['uiRouter','jquery'],function  () {
 			$scope.newProduct = res.data.data.itemList;
 //			console.log($scope.newProduct);
 		})
+		}
+		$scope.junm2newProduct =function  (info) {
+			console.log(info);
+			var newProductsList = [];
+			newProductsList.push(info);
+			localStorage.setItem('prodcutsList',JSON.stringify(newProductsList));
+			$state.go("productDetail");
 		}
 	}])
 })
