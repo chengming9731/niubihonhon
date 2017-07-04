@@ -30,8 +30,6 @@ define(['uiRouter'], function() {
 				treasu.push(enshrine);
 				localStorage.setItem('prodcutsList', JSON.stringify(treasu));
 				$state.go('productDetail')
-			}
-			
-			
+			}			
 		}])
 });

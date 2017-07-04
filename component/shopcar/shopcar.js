@@ -10,15 +10,21 @@ define(['uiRouter'],function(){
 				});
 		})
 		.controller('shopcarCtrl',['$scope','$state',function($scope,$state){
+			var isLogin = localStorage.getItem('isLogin');
+			if(!(isLogin == 'true')){
+				$state.go('login');
+				return;
+			}
 			$scope.arrgoodslist = JSON.parse(localStorage.getItem('shopcarProducts'));
 			//购物车是否有商品
-			if($scope.arrgoodslist.length==0){
+			if(!$scope.arrgoodslist ||$scope.arrgoodslist.length==0 ){
 				$scope.none=true;
+				$scope.arrgoodslist = [];
 			}else{
 				$scope.none=false;
 			}
-			console.log($scope.arrgoodslist);
 			//商品初始化
+			var money = 0;
 			$scope.choose=[];
 			$scope.all=true;
 			$scope.allnum=0;
@@ -31,40 +37,44 @@ define(['uiRouter'],function(){
 				var num=0;
 				if($scope.choose[$index]==true){
 					$scope.allnum++;
+					money += Number($scope.arrgoodslist[$index].price)
+						*Number($scope.arrgoodslist[$index].num);
 				}else{
 					$scope.allnum--;
+					money -= Number($scope.arrgoodslist[$index].price)
+						*Number($scope.arrgoodslist[$index].num);
 				}
 				$scope.choose[$index]=!$scope.choose[$index];
+				$scope.allprice=money.toFixed(2);
 				for(var i=0;i<$scope.arrgoodslist.length;i++){
 					if($scope.choose[i]==false){
 						num++;
-						$scope.allprice+=$scope.arrgoodslist[i].price;
 						if(num==$scope.arrgoodslist.length){
 							$scope.all=false;
 						}
 					}else{
 						$scope.all=true;
-						$scope.allprice-=$scope.arrgoodslist[i].price;
+						money += 0;
 					}
 				}
 			}
 			//全选
 			$scope.chooseAll=function(){
-				$scope.all=!$scope.all
+				$scope.all=!$scope.all;
 				for(var i=0;i<$scope.arrgoodslist.length;i++){
-					$scope.choose[i]=!$scope.choose[i];
-					if($scope.all==false){
+					if(!$scope.all){
+						money += Number($scope.arrgoodslist[i].price)
+						*Number($scope.arrgoodslist[i].num);
+						$scope.choose[i]=false;
 						$scope.allnum=$scope.arrgoodslist.length;
-						$scope.allprice+=$scope.arrgoodslist[i].price;
-					}else{
+					} else {
+						$scope.choose[i]=true;
 						$scope.allnum=0;
-						$scope.allprice=0.00;
+						money=0;
 					}
 				}
-				
-			}
-			//合计商品总价
-			
+				$scope.allprice=money.toFixed(2);
+			}		
 			//编辑
 			$scope.name='编辑';
 			$scope.show=true;
@@ -107,6 +117,35 @@ define(['uiRouter'],function(){
 				productsList.push(item);
 				localStorage.setItem('prodcutsList', JSON.stringify(productsList));
 				$state.go('productDetail');
+			}
+			//收藏商品
+			$scope.collect=function(){
+				
+				var collectionProducts=JSON.parse(localStorage.getItem('collectionProducts'));
+				for(var j=0;j<$scope.arrgoodslist.length;j++){
+					if($scope.choose[j]==false){
+						if(!collectionProducts){
+							collectionProducts=[];
+						}
+						var hasProduct =
+						isHasProduct(collectionProducts,$scope.arrgoodslist[j]);
+						if(!hasProduct || hasProduct == 0){
+							collectionProducts.unshift($scope.arrgoodslist[j]);
+						}
+						localStorage.setItem('collectionProducts'
+						,JSON.stringify(collectionProducts));
+					}
+				}
+				
+			}
+			//判断是是否商品相同方法
+			function isHasProduct(arr,obj){
+				for(var i = 0; i< arr.length; i++){
+					if(arr[i].tradeItemId === obj.tradeItemId){
+						return arr[i];
+					} 
+				}
+					return false;
 			}
 			
 			
