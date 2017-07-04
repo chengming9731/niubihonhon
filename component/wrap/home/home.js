@@ -25,6 +25,9 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				this.getHotMarket = function() {
 					return $http.jsonp('http://mce.mogucdn.com/jsonp/multiget/3?pids=51822%2C51827%2C41119%2C51833%2C51836%2C4604&callback=JSON_CALLBACK')
 				},
+				this.getCaiNiXiHuan = function  () {
+					return $http.jsonp('http://list.mogujie.com/wall/s?q=%E9%9E%8B%E5%AD%90&acm=3.mce.1_10_.37705.28553.qtIkXqo2kaNSe.p_0_615187923-mid_37705-lc_201&ptp=m1.fKiTO.0.0.DMRauh&callback=JSON_CALLBACK')
+				},
 				//猜你喜欢
 				this.getCaiNiXiHuan = function(page) {
 					return $http.jsonp('https://list.mogujie.com/search?cKey=h5-shopping&fcid=&pid=9750&searchTag=&sort=pop&page=' + page + '&_version=61&_=1498814598150&callback=JSON_CALLBACK')
@@ -32,9 +35,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				//搜索框默认
 				this.getMorenKuang = function() {
 					return $http.jsonp('http://list.mogujie.com/module/mget?code=sketch%2ChotWord&callback=JSON_CALLBACK')
-				},
-				this.getaaa = function  () {
-					return $http.jsonp('http://mce.mogucdn.com/jsonp/multiget/3?pids=15713%2C41512&callback=JSON_CALLBACK')
 				}
 		})
 		.service('swiper', ['$timeout', function($timeout) {
@@ -42,8 +42,8 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				$timeout(function() {
 					var mySwiper = new Swiper('.swiper-container', {
 						autoplay: 1500,
-//						observer: true,
-//						observeParents: true,
+						observer: true,
+						observeParents: true,
 						loop: true,
 						// 如果需要分页器
 						pagination: '.swiper-pagination',
@@ -55,10 +55,8 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 		{
 			var page = 1;
 			getData.getAllData().then(function(res) {
-//				console.log(res);
 				$scope.swiperList = res.data.data[51822].list;
 				$scope.dapaiList = res.data.data[51827].list;
-				console.log($scope.dapaiList);
 				swiper.swiper();
 			})
 			getData.getTime().then(function(res) {
@@ -95,7 +93,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			})
 			//猜你喜欢
 			getData.getCaiNiXiHuan().then(function(res) {
-				console.log(res);
+//				console.log(res);
 				$scope.caiNiXihuanTitle = res.data.result.wall.title;
 				$scope.caiNiXihuan = res.data.result.wall.docs;
 			})
@@ -114,7 +112,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			function getNextPage() {
 				page++;
 				getData.getCaiNiXiHuan(page).then(function(res) {
-					$scope.caiNiXihuanTitle = res.data.result.wall.title;
 					if(res) {
 						var arr = res.data.result.wall.docs;
 						$scope.caiNiXihuan = $scope.caiNiXihuan.concat(arr);
@@ -125,7 +122,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			}
 			//路由跳转
 			$scope.chooseModel = function  (title) {
-				console.log(title)
+//				console.log(title)
 				if(title == '大牌满减'){
 					$state.go('daPaiManJian');
 				}
@@ -136,6 +133,18 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 					$state.go('oneGroup');
 				}
 			}
-
+			
+			$scope.jump2column = function  (info) {
+				var columnInfoList = [];
+				columnInfoList.push(info);
+				localStorage.setItem('columnInfoList',JSON.stringify(columnInfoList));
+				$state.go('speColumn');
+			}
+			$scope.jump2Product = function  (info) {
+				var productInfoList = [];
+				productInfoList.push(info);
+				localStorage.setItem('prodcutsList',JSON.stringify(productInfoList));
+				$state.go('productDetail');
+			}
 		}])
 });

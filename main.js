@@ -14,18 +14,34 @@ require.config({
 		'searchpage':'component/searchpage/searchpage',
 		'iconfont':'js/libs/iconfont',
 		'site':'component/wrap/mine/branch/site/site',
-		'jquery':'https://cdn.bootcss.com/jquery/2.2.4/jquery.min',
+		'jquery':'js/libs/jquery-2.2.4.min',
 		'register':'component/register/register',
 		'addsite':'component/wrap/mine/branch/site/addsite/addsite',
-		'orderform':'component/wrap/mine/branch/orderform/orderform',
 		'chooseCountry':'component/chooseCountry/chooseCountry',
 		'findPassWord':'component/findPassWord/findPassWord',
 		'loginWithoutPassword':'component/loginWithoutPassword/loginWithoutPassword',
+		'obligat':'component/wrap/mine/branch/orderform/obligat/obligat',
+		'commonality':'component/wrap/mine/branch/orderform/commonality',
+		'whole':'component/wrap/mine/branch/orderform/whole/whole',
+		'evaluated':'component/wrap/mine/branch/orderform/evaluated/evaluated',
+		'sale':'component/wrap/mine/branch/orderform/sale/sale',
+		'receiving':'component/wrap/mine/branch/orderform/receiving/receiving',
+		'booking':'component/wrap/mine/branch/booking/booking',
+		'total':'component/wrap/mine/branch/booking/total/total',
+		'sthObligation':'component/wrap/mine/branch/booking/sthObligation/sthObligation',
+		'spelling':'component/wrap/mine/branch/booking/spelling/spelling',
+		'spellgroup':'component/wrap/mine/branch/booking/spellgroup/spellgroup',
+		'spellfailure':'component/wrap/mine/branch/booking/spellfailure/spellfailure',
+		'collect':'component/wrap/mine/branch/collect/collect',
+		'treasure':'component/wrap/mine/branch/collect/treasure/treasure',
 		'speColumn':'component/speColumn/speColumn',
+		'productDetail':'component/productDetail/productDetail',
+		'searchpagedel': 'component/searchpage/searchpagedel/searchpagedel',
 		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
 		'newProduct':'component/newProduct/newProduct',
 		'oneGroup':'component/oneGroup/oneGroup',
-		'productDetail':'component/productDetail/productDetail'
+		'productDetail':'component/productDetail/productDetail',
+		'mystore':'component/wrap/mine/branch/collect/mystore/mystore'
 	},
 	shim: {
 		'uiRouter': {
@@ -55,6 +71,9 @@ require.config({
 		'searchpage':{
 			deps:['uiRouter']
 		},
+		'searchpagedel':{
+			deps:['uiRouter']
+		},
 		'app': {
 			deps: ['uiRouter']
 		},
@@ -64,7 +83,34 @@ require.config({
 		'addsite':{
 			deps:['uiRouter']
 		},
-		'orderform':{
+		'obligat':{
+			deps:['uiRouter']
+		},
+		'commonality':{
+			deps:['uiRouter']
+		},
+		'whole':{
+			deps:['uiRouter']
+		},
+		'evaluated':{
+			deps:['uiRouter']
+		},
+		'sale':{
+			deps:['uiRouter']
+		},
+		'receiving':{
+			deps:['uiRouter']
+		},
+		'booking':{
+			deps:['uiRouter']
+		},
+		'collect':{
+			deps:['uiRouter']
+		},
+		'treasure':{
+			deps:['uiRouter']
+		},
+		'mystore':{
 			deps:['uiRouter']
 		}
 	}

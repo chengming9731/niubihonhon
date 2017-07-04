@@ -115,7 +115,7 @@
 			<div class="key_title">热门市场</div>
 			<div class="hot-goods">
 				<div class="keys-list">
-					<div class="keys-item2" ng-repeat="item in hotMarket">
+					<div class="keys-item2" ng-repeat="item in hotMarket" ng-click="jump2column(item)">
 						<a href="">
 							<div class="hot-goods-img"><img src="{{item.image}}"/></div>
 							<div class="hot-goods-title">{{item.title}}</div>
@@ -134,7 +134,7 @@
 			<div class="cube_wall_module">
 				<div class="wall_goods_box">
 					
-					<a href="" ng-repeat="item in caiNiXihuan" class="goodsItem">
+					<a href="" ng-repeat="item in caiNiXihuan" class="goodsItem" ng-click="jump2Product(item)">
 						<div class="goods-img"><img src="{{item.img}}"/ class="J_dynamic_img_fill_img"></div>
 						<div class="goods_info">
 							<div class="name_box">

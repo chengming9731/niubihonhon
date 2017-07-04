@@ -66,7 +66,7 @@ define(['uiRouter','jquery','speColumn'], function() {
 					if(res){
 						var arr = $scope.sortProductsArray ? $scope.sortProductsArray : [];
 						$scope.sortProductsArray = arr.concat(res.data.result.wall.docs);
-						console.log(arr);
+//						console.log(arr);
 					} else {
 						page --;
 					}
@@ -92,10 +92,10 @@ define(['uiRouter','jquery','speColumn'], function() {
 			page ++;
 			$scope.getSortMethod($scope.sortMethodIndex,page)
 		}
-		
-		
-		$scope.jump2column = function(json){
-			localStorage.setItem('columnInfo',JSON.stringify(json));
+		$scope.jump2column = function(columnInfo){
+			var columnInfoList = [];
+			columnInfoList.push(columnInfo)
+			localStorage.setItem('columnInfoList',JSON.stringify(columnInfoList));
 			$state.go('speColumn');
 		}
 		

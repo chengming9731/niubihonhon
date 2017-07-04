@@ -328,7 +328,7 @@
 			<div class="wall_goods_box">
 				<div class="scroll_wallbox">
 					<div class="goods_list_mod">
-						<a href="" class="tuan_goods_item" ng-repeat="item in todayChoose">
+						<a href="" class="tuan_goods_item" ng-repeat="item in todayChoose" ng-click="jump2tuanList(item)">
 							<div class="goods_img" class="goods_img">
 								<div class="topIcon" ng-if="item.lefttop_taglist" ng-repeat="icon in item.lefttop_taglist "><img src="{{icon.img}}" class="top_icon"/></div>
 								<img src="{{item.img}}" class="J_dynamic_img"/>

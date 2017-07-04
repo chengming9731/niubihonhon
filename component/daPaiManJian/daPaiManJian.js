@@ -28,7 +28,7 @@ define(['uiRouter','swiper','jquery'],function  () {
 			this.swiper = function() {
 				$timeout(function() {
 					var mySwiper = new Swiper('.swiper-container', {
-						autoplay: 10000,
+						autoplay: 1000,
 						observer: true,
 						observeParents: true,
 						loop: true,
@@ -42,7 +42,7 @@ define(['uiRouter','swiper','jquery'],function  () {
 			this.swiper2 = function() {
 				$timeout(function() {
 					var mySwiper = new Swiper('.brandGoods_box_list', {
-						autoplay: 10000,
+						autoplay: 1000,
 						observer: true,
 						observeParents: true,
 						loop: true,
@@ -89,23 +89,10 @@ define(['uiRouter','swiper','jquery'],function  () {
 			swiper2.swiper2();
 		})
 		getAllData.getejinRijingXuan().then(function  (res) {
-//			console.log(res);	
 			$scope.todayChoose = res.data.result.wall.docs;
 			
 		})
-		
-		$(function() {
-				$(".dapai-wrap").on('scroll', function() {
-					console.log(1)
-					console.log($('.dapai-wrap').scrollTop());
-					if($(this).scrollTop() >= 12000 ) {
-						console.log(page);
-						getNextPage();
-					}
-				})
 
-			});
-		
 		function getNextPage() {
 				page++;
 				getAllData.getejinRijingXuan(page).then(function(res) {
@@ -118,5 +105,14 @@ define(['uiRouter','swiper','jquery'],function  () {
 				})
 			}
 		
+
+		$scope.jump2tuanList = function  (info) {
+			console.log(info)
+			var tuanInfoList = [];
+			tuanInfoList.push(info);
+			localStorage.setItem('prodcutsList',JSON.stringify(tuanInfoList));
+			$state.go('productDetail');
+		}
+
 	}])
 })
