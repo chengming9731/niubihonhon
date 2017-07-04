@@ -9,12 +9,12 @@ define(['uiRouter','jquery'],function  () {
 				controller:'newProductCtrl'
 			})
 	})
+
 	.service('newData',function($http) {
 		this.getData = function  (keyword) {
 			return $http.jsonp('http://qiang.mogujie.com/jsonp/actGroupItem/1?groupKey=11'+ keyword+'&bizKey=rush_main&isNeedNotice=1&callback=JSON_CALLBACK')
 		}
 	})
-
 	.controller('newProductCtrl',['$scope','$state','$http','newData',function  ($scope,$state,$http,newData) {		
 		var keyword = "q";
 			catchData();
@@ -33,12 +33,9 @@ define(['uiRouter','jquery'],function  () {
 			$(this).addClass("avtive");
 			$(this).siblings().removeClass("avtive");
 		})
-		
 		function catchData () {
 			newData.getData(keyword).then(function  (res) {
-//			console.log(res);
 			$scope.newProduct = res.data.data.itemList;
-//			console.log($scope.newProduct);
 		})
 		}
 		$scope.junm2newProduct =function  (info) {
