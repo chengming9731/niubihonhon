@@ -14,7 +14,7 @@ require.config({
 		'searchpage':'component/searchpage/searchpage',
 		'iconfont':'js/libs/iconfont',
 		'site':'component/wrap/mine/branch/site/site',
-		'jquery':'https://cdn.bootcss.com/jquery/2.2.4/jquery.min',
+		'jquery':'js/libs/jquery-2.2.4.min',
 		'register':'component/register/register',
 		'addsite':'component/wrap/mine/branch/site/addsite/addsite',
 		'chooseCountry':'component/chooseCountry/chooseCountry',
@@ -40,6 +40,8 @@ require.config({
 		'daPaiManJian':'component/daPaiManJian/daPaiManJian',
 		'newProduct':'component/newProduct/newProduct',
 		'oneGroup':'component/oneGroup/oneGroup',
+		'productDetail':'component/productDetail/productDetail',
+		'mystore':'component/wrap/mine/branch/collect/mystore/mystore'
 	},
 	shim: {
 		'uiRouter': {
@@ -106,6 +108,9 @@ require.config({
 			deps:['uiRouter']
 		},
 		'treasure':{
+			deps:['uiRouter']
+		},
+		'mystore':{
 			deps:['uiRouter']
 		}
 	}
