@@ -26,10 +26,9 @@ define(['uiRouter'], function() {
 				$scope.noUrl='https://s10.mogucdn.com/p2/161118/upload_8djbjd0daffce09e0h7e5g564bcbi_479x238.jpg';
 			}
 			$scope.treasur=function(enshrine){
-				console.log(enshrine)
 				var treasu=[];
 				treasu.push(enshrine);
-				localStorage.setItem('treasu', JSON.stringify(treasu));
+				localStorage.setItem('prodcutsList', JSON.stringify(treasu));
 				$state.go('productDetail')
 			}			
 		}])

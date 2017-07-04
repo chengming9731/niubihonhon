@@ -13,8 +13,13 @@ define(['uiRouter','register','findPassWord','loginWithoutPassword'],function(){
 			$scope.headTitle = '登录';
 			$scope.headRight = '忘记密码';
 			$scope.goBack = function(){
-				$state.go('wrap.home');
-				localStorage.setItem('tabIndex',0);
+				var productsList = localStorage.getItem('prodcutsList');
+				if(productsList){
+					history.go(-1);
+				} else {
+					localStorage.setItem('tabIndex',0);
+					$state.go('wrap.home');
+				}
 			};
 			$scope.headRightClick = function(){
 				$state.go('findPassWord');
@@ -22,9 +27,7 @@ define(['uiRouter','register','findPassWord','loginWithoutPassword'],function(){
 			
 			$scope.login = function(){
 				if($scope.account === 'rasir' && $scope.password === '123456'){
-					
 					localStorage.setItem('isLogin','true');
-					console.log('登录成功')
 					$state.go('wrap.home');
 				} else {
 					alert('账号密码错误')

@@ -88,10 +88,16 @@ define(['uiRouter','swiper','jquery'],function  () {
 			swiper2.swiper2();
 		})
 		getAllData.getejinRijingXuan().then(function  (res) {
-			console.log(res);	
+//			console.log(res);	
 			$scope.todayChoose = res.data.result.wall.docs;
 			
 		})
-		
+		$scope.jump2tuanList = function  (info) {
+			console.log(info)
+			var tuanInfoList = [];
+			tuanInfoList.push(info);
+			localStorage.setItem('prodcutsList',JSON.stringify(tuanInfoList));
+			$state.go('productDetail');
+		}
 	}])
 })

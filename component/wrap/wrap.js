@@ -10,6 +10,7 @@ define(['uiRouter'], function() {
 		})
 		.controller('wrapCtrl', ['$state', '$scope', function($state, $scope) {
 			var tabIndex = localStorage.getItem('tabIndex');
+			localStorage.removeItem('prodcutsList');
 			$scope.tabIndex = tabIndex ? tabIndex : '0';
 			var sTabPage = getTabPage();
 			$state.go(sTabPage); //默认显示第一个tab

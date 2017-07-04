@@ -2,7 +2,7 @@
 	<herd-location></herd-location>	
 </div>
 <ul id="head-treasure" ng-show="hide">
-	<li ng-repeat="item in collection" ng-click="treasur(item)">
+	<li ng-repeat="item in collection track by $index" ng-click="treasur(item)">
 		<div class="treasure-img"><img src="{{item.img}}"/></div>
 		<div class="treasure-right">
 			<p>{{item.title}}</p>

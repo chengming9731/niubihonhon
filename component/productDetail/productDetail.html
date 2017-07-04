@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="express-service"><span ng-repeat="desc in itemServices.columns" ng-if="$index<3">{{desc.desc}}</span></div>
-			<div class="service-explain">
+			<div class="service-explain" ng-click="closeExplainDesc()">
 				<span ng-repeat="item in itemServices.services" ng-if="$index<3"><img src="{{item.icon}}" class="fl"/>{{item.name}}</span>
 				<i class="iconfont icon-xiangqian"></i>
 			</div>
@@ -39,8 +39,8 @@
           <span class="fr">查看详情<i class="iconfont icon-xiangqian"></i></span>
 		</div>
 	</div>
-	<div class="choose-size">
-		请选择：颜色 尺码
+	<div class="choose-size" ng-click="czToggle()">
+		请选择：<i ng-class="{true:'red'}[skuColor != skuInfo.styleKey]">{{skuColor}}</i><i ng-class="{true:'red'}[skuSize != skuInfo.sizeKey]">{{skuSize}}</i>
 		<i class="iconfont icon-xiangqian fr"></i>
 	</div>
 	<div class="comment">
@@ -104,9 +104,9 @@
 	</div>
 	<div class="product-desc">
 		<div class="product-desc-nav clear">
-			<a href="" class="active">图文详情</a>
-			<a href="" >商品参数</a>
-			<a href="">热卖推荐</a>
+			<a href="javascript:void(0);" ng-click="descNavPosition(0)" ng-class="{true:'active'}[descNavIndex == 0]">图文详情</a>
+			<a href="javascript:void(0);" ng-click="descNavPosition(1)" ng-class="{true:'active'}[descNavIndex == 1]">商品参数</a>
+			<a href="javascript:void(0);" ng-click="descNavPosition(2)" ng-class="{true:'active'}[descNavIndex == 2]">热卖推荐</a>
 		</div>
 		<div id="product-desc-graphic">
 			<div class="product-graphic-text">
@@ -178,9 +178,67 @@
 				<a href="javascript:void(0);" ng-click='order(productInfo)'>立即购买</a>
 			</div>
 		</div>
+		<div class="product-detail-cover" ng-class="{true:'showNav'}[isCoverShow]"></div>
+		<div class="quick-nav" ng-class="{true:'showNav'}[navIsShow]">
+			<ul ng-class="{true:'show'}[navSlowShow]">
+				<li ng-click="back2home()"><a href="">首页</a><i class="iconfont icon-shouye"></i></li>
+				<li ui-sref="shopcar"><a href="">购物车</a><i class="iconfont icon-gouwuchekong"></i></li>
+				<li ui-sref="searchpage"><a href="">搜索</a><i class="iconfont icon-shousuo"></i></li>
+				<li ng-click="quickNav()"><p>X</p></li>
+			</ul>
+		</div>
+		<div class="service-explain-desc">
+			<h3>服务说明<span class="fr" ng-click="closeExplainDesc()">X</span></h3>
+			<ol>
+				<li ng-repeat="item in itemServices.services">
+					<div>
+						<img src="{{item.icon}}"/>
+					</div>
+					<div class="service-detail">
+						<h3>{{item.name}}</h3>
+						<p>{{item.content}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="color-size-detail">
+			<div class="clear">
+				<div class="cz-image fl">
+					<img src="{{sku.img}}" alt="" />
+				</div>
+				<div class="cz-desc fl">
+					<p class="clear">
+						<span class="fl">{{sku.currency}}</span>
+						<b class="fl">{{sku.nowprice}}</b>
+					</p>
+					<p>
+						库存{{sku.stock}}件
+					</p>
+					<p>
+						请选择：<i ng-class="{true:'red'}[skuColor != skuInfo.styleKey]">{{skuColor}}</i><i ng-class="{true:'red'}[skuSize != skuInfo.sizeKey]">{{skuSize}}</i>
+					</p>
+					
+				</div>
+				<div class="cz-close fr" ng-click="czToggle()">X</div>
+			</div>
+			<div class="cz-div" ng-repeat="item in skuInfo.props">
+				<p>{{item.label}}</p>
+				<p><span ng-repeat="v in item.list"  ng-click="makeSureSku(item.label,v.name)" ng-class="{true:'active'}[skuColor == v.name || skuSize == v.name ]">{{v.name}}</span></p>
+			</div>
+			<div class="num cz-div">
+				<p>数量</p>
+				<div class="clear">
+					<input type="button" value="-"  class="fl" ng-click='addNum(-1)' ng-class="{true:'active'}[number>1]"/>
+					<input type="text" ng-model="number"   class="fl"/>
+					<input type="button" value="+"   class="fl active" ng-click='addNum(1)'/>
+				</div>
+			</div>
+			<div class="buy-action clear">
+				<div class="fl" ng-click="add2shopcar(productInfo)">加入购物车</div>
+				<div class="fl" ng-click='order(productInfo)'>立刻购买</div>
+			</div>
+		</div>
 	</div>
-	<div class="product-detail-cover">
-		
-	</div>
+	
 
 </div>
