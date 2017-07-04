@@ -22,5 +22,9 @@ define(['uiRouter','login','obligat','collect'],function(){
 				localStorage.setItem('commonalityIndex',index);
 				$state.go('commonality');
 			}
+			$scope.store =function(index){
+				localStorage.setItem('collectStore',index);
+				$state.go('collect');
+			}
 		}])
 });

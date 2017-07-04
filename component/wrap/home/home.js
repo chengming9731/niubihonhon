@@ -51,12 +51,12 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				}, 100)
 			}
 		}])
-		.controller('homeCtrl', ['$scope', '$http', 'getData', 'swiper', '$interval', '$state', function($scope, $http, getData, swiper, $interval, $state) {
+		.controller('homeCtrl', ['$scope', '$http', 'getData', 'swiper', '$interval', '$state', function($scope, $http, getData, swiper, $interval, $state) 
+		{
 			var page = 1;
 			getData.getAllData().then(function(res) {
 				$scope.swiperList = res.data.data[51822].list;
 				$scope.dapaiList = res.data.data[51827].list;
-				console.log($scope.dapaiList);
 				swiper.swiper();
 			})
 			getData.getTime().then(function(res) {
@@ -93,7 +93,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			})
 			//猜你喜欢
 			getData.getCaiNiXiHuan().then(function(res) {
-				console.log(res);
+//				console.log(res);
 				$scope.caiNiXihuanTitle = res.data.result.wall.title;
 				$scope.caiNiXihuan = res.data.result.wall.docs;
 			})
@@ -112,9 +112,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			function getNextPage() {
 				page++;
 				getData.getCaiNiXiHuan(page).then(function(res) {
-					$scope.caiNiXihuanTitle = res.data.result.wall.title;
-					$scope.caiNiXihuan = res.data.result.wall.docs;
-					$scope.currentArrar = [];
 					if(res) {
 						var arr = res.data.result.wall.docs;
 						$scope.caiNiXihuan = $scope.caiNiXihuan.concat(arr);
@@ -125,7 +122,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			}
 			//路由跳转
 			$scope.chooseModel = function  (title) {
-				console.log(title)
+//				console.log(title)
 				if(title == '大牌满减'){
 					$state.go('daPaiManJian');
 				}
@@ -136,6 +133,18 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 					$state.go('oneGroup');
 				}
 			}
-
+			
+			$scope.jump2column = function  (info) {
+				var columnInfoList = [];
+				columnInfoList.push(info);
+				localStorage.setItem('columnInfoList',JSON.stringify(columnInfoList));
+				$state.go('speColumn');
+			}
+			$scope.jump2Product = function  (info) {
+				var productInfoList = [];
+				productInfoList.push(info);
+				localStorage.setItem('prodcutsList',JSON.stringify(productInfoList));
+				$state.go('productDetail');
+			}
 		}])
 });

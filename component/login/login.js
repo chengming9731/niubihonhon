@@ -27,9 +27,7 @@ define(['uiRouter','register','findPassWord','loginWithoutPassword'],function(){
 			
 			$scope.login = function(){
 				if($scope.account === 'rasir' && $scope.password === '123456'){
-					
 					localStorage.setItem('isLogin','true');
-					console.log('登录成功')
 					$state.go('wrap.home');
 				} else {
 					alert('账号密码错误')

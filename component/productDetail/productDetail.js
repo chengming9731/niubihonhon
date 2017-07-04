@@ -55,7 +55,6 @@ define(['uiRouter', 'jquery'], function() {
 				$scope.number = 1;
 				$scope.productsList = JSON.parse(localStorage.getItem('prodcutsList'))
 				$scope.productInfo = $scope.productsList[0];
-				
 				$scope.similarityProducts = [];
 				//				产品数据
 				$http.jsonp(api.getProductApi($scope.productInfo.tradeItemId))
