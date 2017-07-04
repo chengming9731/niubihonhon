@@ -13,8 +13,13 @@ define(['uiRouter','register','findPassWord','loginWithoutPassword'],function(){
 			$scope.headTitle = '登录';
 			$scope.headRight = '忘记密码';
 			$scope.goBack = function(){
-				$state.go('wrap.home');
-				localStorage.setItem('tabIndex',0);
+				var productsList = localStorage.getItem('prodcutsList');
+				if(productsList){
+					history.go(-1);
+				} else {
+					localStorage.setItem('tabIndex',0);
+					$state.go('wrap.home');
+				}
 			};
 			$scope.headRightClick = function(){
 				$state.go('findPassWord');

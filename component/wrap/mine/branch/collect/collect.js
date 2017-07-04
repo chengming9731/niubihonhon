@@ -1,5 +1,5 @@
-define(['uiRouter','treasure'],function(){
-	var collectApp = angular.module('collectModule',['ui.router','treasureModule'])
+define(['uiRouter','treasure','mystore'],function(){
+	var collectApp = angular.module('collectModule',['ui.router','treasureModule','mystoreModule'])
 		.config(function($stateProvider,$urlRouterProvider){
 			$stateProvider.state('collect',{
 				url:'/collect',
@@ -17,6 +17,6 @@ define(['uiRouter','treasure'],function(){
 			$scope.collec=function(index){
 				$scope.collect=index;
 			};
-			
+			$state.go('collect.treasure')
 		}])
 	})
