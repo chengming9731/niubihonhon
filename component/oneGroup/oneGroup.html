@@ -46,20 +46,21 @@
 	</div>
 	</div>
 	<div class="goods_list_mod">
-		<a href="" class="pin_goods_item">
-			<div class="pin_good_img"><img src="{{}}"/></div>
+		<a href="" class="pin_goods_item" ng-repeat="item in infoList">
+			<div class="pin_good_img"><img src="{{item.image}}"/></div>
 			<div class="pin_good_info">
-				<p class="pin_good_title">{{}}</p>
-			</div>
-			<div class="pin_good_tags">
-				<span class="pin_good_tag">{{}}	</span>
+				<p class="pin_good_title">{{item.title}}</p>
+				<div class="pin_good_tags">
+				<span class="pin_good_tag">{{item.itemAdvantageDesc}}	</span>
 			</div>
 			<div class="pin_good_price_info">	
-				<p class="pin_goods_price">￥{{}}</p>
-				<span class="pin_goods_origin_price">￥{{}} </span>
+				<p class="pin_goods_price">￥{{item.discountPrice}}</p>
+				<span class="pin_goods_origin_price">￥{{item.price}} </span>
 			</div>
-			<div class="pin_info"><p class="pin_info_number">已团{{}}件</p></div>
-			<div class="pin_info_gotuan"><p class="pin_info_go"></p></div>
+			<div class="pin_info"><p class="pin_info_number">已团{{item.pintuanItemSale}}件</p></div>
+			<div class="pin_info_gotuan"><p class="pin_info_go">去开团</p></div>
+			</div>
+			
 		</a>
 	</div>
 

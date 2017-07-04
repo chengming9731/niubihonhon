@@ -56,7 +56,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			getData.getAllData().then(function(res) {
 				$scope.swiperList = res.data.data[51822].list;
 				$scope.dapaiList = res.data.data[51827].list;
-//				console.log($scope.dapaiList);
 				swiper.swiper();
 			})
 			getData.getTime().then(function(res) {
