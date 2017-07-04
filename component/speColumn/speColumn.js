@@ -48,7 +48,7 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 					history.go(-1);
 				} else {
 					$scope.columnInfoList.shift();
-					$scope.columnInfoList.setItem('columnInfoList', JSON.stringify($scope.columnInfoList));
+					localStorage.setItem('columnInfoList', JSON.stringify($scope.columnInfoList));
 					initData();
 				}
 			}
