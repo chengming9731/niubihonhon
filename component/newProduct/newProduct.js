@@ -10,6 +10,7 @@ define(['uiRouter'],function  () {
 			})
 	})
 	.controller('newProductCtrl',['$scope','$state','$http',function  ($scope,$state,$http) {
-		$scope.name = '新品首发'
+		$scope.name = '新品首发';
+		
 	}])
 })

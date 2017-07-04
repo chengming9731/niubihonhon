@@ -51,7 +51,8 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				}, 100)
 			}
 		}])
-		.controller('homeCtrl', ['$scope', '$http', 'getData', 'swiper', '$interval', '$state', function($scope, $http, getData, swiper, $interval, $state) {
+		.controller('homeCtrl', ['$scope', '$http', 'getData', 'swiper', '$interval', '$state', function($scope, $http, getData, swiper, $interval, $state) 
+		{
 			var page = 1;
 			getData.getAllData().then(function(res) {
 //				console.log(res);

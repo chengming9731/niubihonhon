@@ -19,8 +19,8 @@ define(['uiRouter','swiper','jquery'],function  () {
 		this.getDataList= function  () {
 			return $http.jsonp('http://tuan.mogujie.com/tuanItem?bizKey=eventwall&day=0&page=1&pageSize=30&tCatIds=562&callback=JSON_CALLBACK')
 		},
-		this.getejinRijingXuan = function  () {
-			return $http.jsonp('http://list.mogujie.com/search?cKey=app-tuan-v2&algoKey=app_tuan_book_pop&fcid=10062525&pid=&searchTag=&sort=pop&page=1&ratio=3%3A4&_version=61&cpc_offset=0&_=1499074538882&callback=JSON_CALLBACK')
+		this.getejinRijingXuan = function  (page) {
+			return $http.jsonp('http://list.mogujie.com/search?cKey=app-tuan-v2&algoKey=app_tuan_book_pop&fcid=10062525&pid=&searchTag=&sort=pop&page='+page+'&ratio=3%3A4&_version=61&cpc_offset=0&_=1499074538882&callback=JSON_CALLBACK')
 		}
 
 	})
@@ -54,7 +54,8 @@ define(['uiRouter','swiper','jquery'],function  () {
 		}])
 	
 	.controller('daPaiManJianCtrl',['$scope','$state','$http','swiper','getAllData','swiper2',function  ($scope,$state,$http,swiper,getAllData,swiper2) {
-		getAllData.getBannerData().then(function  (res) {
+			var page = 1;
+			getAllData.getBannerData().then(function  (res) {
 //			console.log(res);	
 			$scope.swiperList = res.data.data[15711].list;
 			swiper.swiper();
@@ -88,10 +89,34 @@ define(['uiRouter','swiper','jquery'],function  () {
 			swiper2.swiper2();
 		})
 		getAllData.getejinRijingXuan().then(function  (res) {
-			console.log(res);	
+//			console.log(res);	
 			$scope.todayChoose = res.data.result.wall.docs;
 			
 		})
+		
+		$(function() {
+				$(".dapai-wrap").on('scroll', function() {
+					console.log(1)
+					console.log($('.dapai-wrap').scrollTop());
+					if($(this).scrollTop() >= 12000 ) {
+						console.log(page);
+						getNextPage();
+					}
+				})
+
+			});
+		
+		function getNextPage() {
+				page++;
+				getAllData.getejinRijingXuan(page).then(function(res) {
+					if(res) {
+						var arr = res.data.result.wall.docs;
+						$scope.todayChoose = $scope.todayChoose.concat(arr);
+					}else{
+						page--;
+					}
+				})
+			}
 		
 	}])
 })
