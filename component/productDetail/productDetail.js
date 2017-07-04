@@ -116,7 +116,13 @@ define(['uiRouter', 'jquery'], function() {
 				if(!shopcarProducts){
 					shopcarProducts = [];
 				}
-				shopcarProducts.unshift(productInfo);
+				var hasProduct = isHasProduct(shopcarProducts,productInfo);
+				if(hasProduct){
+					hasProduct.num ++;
+				} else {
+					productInfo.num = 1;
+					shopcarProducts.unshift(productInfo);
+				}
 				localStorage.setItem('shopcarProducts',JSON.stringify(shopcarProducts));
 			}
 //			收藏产品
@@ -125,7 +131,10 @@ define(['uiRouter', 'jquery'], function() {
 				if(!collectionProducts){
 					collectionProducts = [];
 				}
-				collectionProducts.unshift(productInfo);
+				var hasProduct = isHasProduct(collectionProducts,productInfo);
+				if(!hasProduct){
+					collectionProducts.unshift(productInfo);
+				}
 				localStorage.setItem('collectionProducts',JSON.stringify(collectionProducts));
 				console.log(collectionProducts)
 			}
@@ -149,7 +158,17 @@ define(['uiRouter', 'jquery'], function() {
 			$scope.quickNav =function(){
 				
 			}
-			
+//			判断是否为同一个产品	
+			function isHasProduct(arr,obj){
+				for(var i = 0; i< arr.length; i++){
+					if(arr[i].tradeItemId === obj.tradeItemId){
+					return arr[i];
+				} else {
+					return false;
+				}
+				}
+				
+			}
 			
 		}])
 

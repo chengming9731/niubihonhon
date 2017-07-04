@@ -38,7 +38,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			this.swiper = function() {
 				$timeout(function() {
 					var mySwiper = new Swiper('.swiper-container', {
-						autoplay: 1000,
+						autoplay: 1500,
 						observer: true,
 						observeParents: true,
 						loop: true,
