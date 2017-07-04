@@ -94,7 +94,7 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 						}
 						return;
 					}
-
+					console.log(res);
 				});
 			}
 			$scope.sortMethod = function(sort) {

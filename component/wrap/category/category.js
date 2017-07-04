@@ -92,8 +92,6 @@ define(['uiRouter','jquery','speColumn'], function() {
 			page ++;
 			$scope.getSortMethod($scope.sortMethodIndex,page)
 		}
-		
-		
 		$scope.jump2column = function(columnInfo){
 			var columnInfoList = [];
 			columnInfoList.push(columnInfo)
