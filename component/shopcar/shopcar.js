@@ -120,18 +120,20 @@ define(['uiRouter'],function(){
 			}
 			//收藏商品
 			$scope.collect=function(){
+				
 				var collectionProducts=JSON.parse(localStorage.getItem('collectionProducts'));
 				for(var j=0;j<$scope.arrgoodslist.length;j++){
-					if($scope.choose[i]==false){
+					if($scope.choose[j]==false){
 						if(!collectionProducts){
 							collectionProducts=[];
 						}
 						var hasProduct =
 						isHasProduct(collectionProducts,$scope.arrgoodslist[j]);
-						if(!hasProduct){
+						if(!hasProduct || hasProduct == 0){
 							collectionProducts.unshift($scope.arrgoodslist[j]);
 						}
-						localStorage.setItem('collectionProducts',JSON.stringify(collectionProducts));	
+						localStorage.setItem('collectionProducts'
+						,JSON.stringify(collectionProducts));
 					}
 				}
 				
@@ -141,10 +143,9 @@ define(['uiRouter'],function(){
 				for(var i = 0; i< arr.length; i++){
 					if(arr[i].tradeItemId === obj.tradeItemId){
 						return arr[i];
-					} else {
-						return false;
-					}
+					} 
 				}
+					return false;
 			}
 			
 			
