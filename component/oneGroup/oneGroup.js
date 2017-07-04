@@ -10,7 +10,7 @@ define(['uiRouter'],function  () {
 			})
 	})
 	.controller('oneGroupCtrl',['$scope','$state','$http',function  ($scope,$state,$http) {
-		$scope.name = '一元拼团';
+		$scope.name = '正在搭建中......';
 		$http.jsonp('http://mce.mogucdn.com/jsonp/multiget/3?pids=15711%2C41510&callback=CALL_BACK').then(function  (res) {
 		console.log(res);	
 		})

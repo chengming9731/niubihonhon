@@ -90,7 +90,7 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			})
 			//猜你喜欢
 			getData.getCaiNiXiHuan().then(function(res) {
-				console.log(res);
+//				console.log(res);
 				$scope.caiNiXihuanTitle = res.data.result.wall.title;
 				$scope.caiNiXihuan = res.data.result.wall.docs;
 			})
@@ -109,9 +109,6 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 			function getNextPage() {
 				page++;
 				getData.getCaiNiXiHuan(page).then(function(res) {
-					$scope.caiNiXihuanTitle = res.data.result.wall.title;
-					$scope.caiNiXihuan = res.data.result.wall.docs;
-					$scope.currentArrar = [];
 					if(res) {
 						var arr = res.data.result.wall.docs;
 						$scope.caiNiXihuan = $scope.caiNiXihuan.concat(arr);
@@ -133,6 +130,11 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 					$state.go('oneGroup');
 				}
 			}
-
+			
+			$scope.jump2column = function  (info) {
+				var columnInfoList = [];
+				columnInfoList.push(info);
+				localStorage.setItem('columnInfoList',JSON.stringify(columnInfoList));
+			}
 		}])
 });

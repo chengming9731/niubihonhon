@@ -115,7 +115,7 @@
 			<div class="key_title">热门市场</div>
 			<div class="hot-goods">
 				<div class="keys-list">
-					<div class="keys-item2" ng-repeat="item in hotMarket">
+					<div class="keys-item2" ng-repeat="item in hotMarket" ng-click="jump2column(item)">
 						<a href="">
 							<div class="hot-goods-img"><img src="{{item.image}}"/></div>
 							<div class="hot-goods-title">{{item.title}}</div>
