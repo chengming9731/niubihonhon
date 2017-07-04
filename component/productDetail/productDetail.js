@@ -55,6 +55,7 @@ define(['uiRouter', 'jquery'], function() {
 				$scope.number = 1;
 				$scope.productsList = JSON.parse(localStorage.getItem('prodcutsList'))
 				$scope.productInfo = $scope.productsList[0];
+				
 				$scope.similarityProducts = [];
 				//				产品数据
 				$http.jsonp(api.getProductApi($scope.productInfo.tradeItemId))
@@ -126,6 +127,7 @@ define(['uiRouter', 'jquery'], function() {
 			}
 //			添加到购物车
 			$scope.add2shopcar = function(productInfo){
+					isLogined();
 					productInfo.size = $scope.skuSize;
 					productInfo.color = $scope.skuColor;
 				if($scope.skuColor == $scope.skuInfo.styleKey || $scope.skuSize === $scope.skuInfo.sizeKey){
@@ -136,7 +138,7 @@ define(['uiRouter', 'jquery'], function() {
 				if(!shopcarProducts){
 					shopcarProducts = [];
 				}
-				var hasProduct = isHasProduct(shopcarProducts,productInfo);
+				var hasProduct = isHasProduct(shopcarProducts,productInfo,true);
 				if(hasProduct){
 					hasProduct.num += $scope.number;
 					$scope.number = 1;
@@ -152,14 +154,18 @@ define(['uiRouter', 'jquery'], function() {
 			}
 //			收藏产品
 			$scope.collectProduct = function(productInfo){
+					isLogined();
+					productInfo.size = $scope.skuSize;
+					productInfo.color = $scope.skuColor;
 				var collectionProducts = JSON.parse(localStorage.getItem('collectionProducts'));
 				if(!collectionProducts){
 					collectionProducts = [];
 				}
-				var hasProduct = isHasProduct(collectionProducts,productInfo);
+				var hasProduct = isHasProduct(collectionProducts,productInfo,false);
 				if(!hasProduct){
 					collectionProducts.unshift(productInfo);
 				}
+				console.log(hasProduct,collectionProducts);
 				localStorage.setItem('collectionProducts',JSON.stringify(collectionProducts));
 			}
 //			立即购买
@@ -196,16 +202,30 @@ define(['uiRouter', 'jquery'], function() {
 				}
 			}
 //			判断是否为同一个产品	
-			function isHasProduct(arr,obj){
+			function isHasProduct(arr,obj,isBuy){
 				for(var i = 0; i< arr.length; i++){
-					if(arr[i].tradeItemId === obj.tradeItemId && arr[i].color === obj.color 
+					if(isBuy){
+						if(arr[i].tradeItemId === obj.tradeItemId && arr[i].color === obj.color 
 						&& arr[i].size == obj.size){
-					return arr[i];
-					} 
+							return arr[i];
+						} 
+					} else {
+						if(arr[i].tradeItemId === obj.tradeItemId){
+							return arr[i];
+						}
+					}
+					
 				}
 				return false;
 			}
-			
+			function isLogined(){
+				var isLogined = localStorage.getItem('isLogin');
+					if(!(isLogined=='true')){
+						alert('请先登录！')
+						$state.go('login');
+						return;
+					}
+			}
 			$scope.descNavPosition = function(index){
 				$scope.descNavIndex = index;
 				var position = '';
@@ -305,6 +325,11 @@ define(['uiRouter', 'jquery'], function() {
 						'display':'none'
 					});
 				}
+			 }
+			 
+			 $scope.back2home = function(){
+			 	$state.go('wrap');
+			 	localStorage.setItem('tabIndex',0);
 			 }
 			
 		}])

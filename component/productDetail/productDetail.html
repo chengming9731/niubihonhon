@@ -181,7 +181,7 @@
 		<div class="product-detail-cover" ng-class="{true:'showNav'}[isCoverShow]"></div>
 		<div class="quick-nav" ng-class="{true:'showNav'}[navIsShow]">
 			<ul ng-class="{true:'show'}[navSlowShow]">
-				<li ui-sref="wrap.home"><a href="">首页</a><i class="iconfont icon-shouye"></i></li>
+				<li ng-click="back2home()"><a href="">首页</a><i class="iconfont icon-shouye"></i></li>
 				<li ui-sref="shopcar"><a href="">购物车</a><i class="iconfont icon-gouwuchekong"></i></li>
 				<li ui-sref="searchpage"><a href="">搜索</a><i class="iconfont icon-shousuo"></i></li>
 				<li ng-click="quickNav()"><p>X</p></li>
