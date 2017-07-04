@@ -16,7 +16,7 @@ define(['uiRouter'],function(){
 //			$scope.change0=function(type){
 //				$scope.choose0=!$scope.choose0;
 //			}
-			$scope.change=function(type){
+			$scope.change=function(){
 				$scope.choose=!$scope.choose;
 //				$scope.arr.push(this);
 				console.log(this);
@@ -26,6 +26,8 @@ define(['uiRouter'],function(){
 			}
 			$scope.arrgoodslist = JSON.parse(localStorage.getItem('shopcarProducts'));
 			console.log($scope.arrgoodslist);
+			console.log(1);
+			
 		}])
 		
 });
