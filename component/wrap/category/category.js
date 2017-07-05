@@ -98,7 +98,14 @@ define(['uiRouter','jquery','speColumn'], function() {
 			localStorage.setItem('columnInfoList',JSON.stringify(columnInfoList));
 			$state.go('speColumn');
 		}
-		
+		$scope.jump2product = function(info){
+			if(info.tradeItemId){
+					var productsList = [];
+					productsList.push(info);
+					localStorage.setItem('prodcutsList', JSON.stringify(productsList));
+					$state.go('productDetail');
+				}
+		}
 		
 		
 		}]);

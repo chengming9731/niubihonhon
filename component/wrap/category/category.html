@@ -1,4 +1,5 @@
-<div class="category">
+<script src='js/libs/me-lazyload.js'></script>
+<div class="category lazyLoadContainer">
 	<search></search>
 	<div class="main clear">
 		<ul class="main-left fl">
@@ -6,7 +7,7 @@
 				<a href="javascript:;">{{value.title}}</a>
 			</li>
 		</ul>
-		<div class="main-right fr">
+		<div class="main-right fr lazyLoadContainer">
 			<div class="main-right-hot clear">
 				<a href="" class="fl" ng-repeat="value in categoryRight" ng-click="jump2column(value)">
 				<img src="{{value.image}}" alt="" />
@@ -20,7 +21,7 @@
 				<a href="" class="fl" ng-class="{true:'active'}[sortMethodIndex==2]" ng-click="getSortMethod(2)"><span>新品</span></a>
 			</div>
 			<div class="products clear">
-				<a href="" ng-cloack class="item fl" ng-repeat="value in sortProductsArray">
+				<a href="" ng-click="jump2product(value)" class="item fl" ng-repeat="value in sortProductsArray">
 					<div>
 					<img src="{{value.img}}"/>
 					<span>已售 {{value.sale}} 件</span>

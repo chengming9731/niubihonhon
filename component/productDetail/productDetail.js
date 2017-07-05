@@ -59,6 +59,7 @@ define(['uiRouter', 'jquery'], function() {
 				//				产品数据
 				$http.jsonp(api.getProductApi($scope.productInfo.tradeItemId))
 					.then(function(res) {
+						
 						var productInfoList = res.data.data;
 						//						一级数据
 						$scope.collcationSet = productInfoList.collcationSet;

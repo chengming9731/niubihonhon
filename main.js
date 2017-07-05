@@ -41,7 +41,8 @@ require.config({
 		'newProduct':'component/newProduct/newProduct',
 		'oneGroup':'component/oneGroup/oneGroup',
 		'productDetail':'component/productDetail/productDetail',
-		'mystore':'component/wrap/mine/branch/collect/mystore/mystore'
+		'mystore':'component/wrap/mine/branch/collect/mystore/mystore',
+		'lazyload':'js/libs/me-lazyload'
 	},
 	shim: {
 		'uiRouter': {
