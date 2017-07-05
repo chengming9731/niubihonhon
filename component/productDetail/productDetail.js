@@ -96,7 +96,6 @@ define(['uiRouter', 'jquery'], function() {
 						//				店铺活动信息
 						$http.jsonp(api.getShopActivityApi($scope.userInfo))
 							.then(function(res) {
-								console.log(res);
 								$scope.shopAcitivityInfos = res.data.data.list;
 							})
 
