@@ -38,11 +38,13 @@ define(['uiRouter','obligat'],function(){
 			$scope.goBack=function(){
 				$state.go('wrap.mine');
 			}
-			$scope.headRight="<p ui-sref='shopcar'><i class='iconfont icon-gouwuchekong'></i></p>";
+			$scope.headRight="<p><i class='iconfont icon-gouwuchekong'></i></p>";
 			$scope.skip=function(index){
 				$scope.updateSetting=index;
 			}
-			
+			$scope.headRightClick=function(){
+				$state.go('shopcar');
+			}
 			
 		}])
 })
