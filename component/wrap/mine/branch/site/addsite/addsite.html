@@ -16,16 +16,16 @@
 	</div>
 	<div class='consignee'>
 		<p>城市</p>
-		<select ng-change="town(townName)" ng-model="townName">
+		<select ng-model="townName">
 			<option>请选择</option>
-			<option ng-repeat="item1 in urban" ng-if="$index>0">{{item1.name}}</option>
+			<option ng-repeat="item1 in urban">{{item1.name}}</option>
 		</select>
 	</div>
 	<div class='consignee'>
 		<p>地区</p>
 		<select ng-model="areaName">
 			<option>请选择</option>
-			<option ng-repeat='item2 in region' ng-if="$index>0">{{item2.name}}</option>
+			<option ng-repeat='item2 in region'>{{item2.name}}</option>
 		</select>
 	</div>
 	<div class='addsite-particular'>

@@ -38,7 +38,7 @@ define(['uiRouter','obligat'],function(){
 			$scope.goBack=function(){
 				$state.go('wrap.mine');
 			}
-			$scope.headRight="<a href='http://127.0.0.1:8020/jinpinji(1)/index.html?__hbt=1499052339195#/shopcar'><i class='iconfont icon-gouwuchekong'></i></a>";
+			$scope.headRight="<p ui-sref='shopcar'><i class='iconfont icon-gouwuchekong'></i></p>";
 			$scope.skip=function(index){
 				$scope.updateSetting=index;
 			}
