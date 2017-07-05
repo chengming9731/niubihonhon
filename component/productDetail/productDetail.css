@@ -23,7 +23,8 @@
 #products-detail .activity{color:#999999;margin-top: 0.32rem;background: #FFFFFF;padding: 0.266666rem;font-size: 0.4rem;}
 #products-detail .activity .activity-title{line-height: 1.066666rem;border-bottom: 0.013333rem solid #999999;}
 #products-detail .activity .activity-desc{line-height: 1.06666rem;}
-#products-detail .activity .activity-desc p{font-size:0.346666rem;width: 70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+#products-detail .activity .activity-desc div{width: 70%;line-height: 0.666666rem;}
+#products-detail .activity .activity-desc p{font-size:0.346666rem;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 #products-detail .activity .activity-desc .iconfont{font-size: 0.4rem;margin-left: 0.266666rem;}
 
 /*选择尺码*/
@@ -41,7 +42,7 @@
 #products-detail .comment .comment-egs .comment-eg-item .comment-head-border{width: 0.8rem;height: 0.8rem;border-radius: 50%;overflow: hidden;}
 #products-detail .comment .comment-egs .comment-eg-item .comment-head-border img{width: 100%;height: 100%;}
 #products-detail .comment .comment-egs .comment-eg-item .commenter-name{margin: 0.266666rem;}
-#products-detail .comment .comment-egs .comment-eg-item .comment-content{padding: 0.266666rem;font-size: 0.166666rem;}
+#products-detail .comment .comment-egs .comment-eg-item .comment-content{padding: 0.266666rem;font-size: 0.266666rem;}
 #products-detail .comment .comment-egs .comment-eg-item .comment-time{font-size:0.28rem;padding: 0 0.266666rem;}
 
 
