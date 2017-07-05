@@ -24,36 +24,35 @@ define(['uiRouter'],function(){
 			$http.get('json/chinaCities.json').then(function(res){
 				//省数据
 				$scope.cities=res.data.china
+				
 			})
-			//市数据
 			$scope.citie=function(polis){
 				angular.forEach($scope.cities,function(data){
-					if(polis==data.name){
-						$scope.urban=data.sub;
-						if(!$scope.urban[0].sub){
-							var arr =[{name:'a'}];
+					if(polis==data.name){  
+						if(data.sub[0].sub){//三层数据  true
+							$scope.urban=data.sub;//市数据
+					//	$scope.townName=data.sub[1].name;//市默认选中
+						angular.forEach($scope.urban,function(data1){
+								if(data.sub[1].name==data1.name){
+									$scope.region=data1.sub;
+									$scope.areaName=data1.sub[1].name;//区默认选中
+								}
+							})
+						}else{ //二层数据  false
+							var arr =[];
 							arr.push({name:polis})
-							$scope.urban= arr;
+							$scope.urban= arr;  //市数据
+							$scope.townName=arr[0].name;
+							angular.forEach($scope.cities,function(data){
+								if(arr[0].name==data.name){
+									$scope.region=data.sub;
+									$scope.areaName=data.sub[1].name;
+								}
+							})
+							
 						}
 					}
 				})
-			}
-				//区数据
-			$scope.town=function(tow){
-				console.log(tow)
-				if(!$scope.urban[0].sub){
-					angular.forEach($scope.cities,function(data){
-						if(tow==data.name){
-							$scope.region=data.sub							
-						}
-					})
-				}else{
-					angular.forEach($scope.urban,function(data){
-					if(tow==data.name){
-						$scope.region=data.sub;
-					}
-				})
-				}
 			}
 		}])
 });
