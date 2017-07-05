@@ -31,7 +31,7 @@ define(['uiRouter'],function(){
 					if(polis==data.name){  
 						if(data.sub[0].sub){//三层数据  true
 							$scope.urban=data.sub;//市数据
-					//	$scope.townName=data.sub[1].name;//市默认选中
+						$scope.townName=data.sub[1].name;//市默认选中
 						angular.forEach($scope.urban,function(data1){
 								if(data.sub[1].name==data1.name){
 									$scope.region=data1.sub;

@@ -1,5 +1,8 @@
 .oneGrounp_wrap{width: 100%;}
 .swiper-container{width: 100%;height: 100%;}
+.swiper-slide  img{
+	width: 100%;
+}
 .nav_tabs_scroll{
 	width: 100%;
     overflow: hidden;
