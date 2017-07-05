@@ -114,6 +114,9 @@ define(['uiRouter', 'swiper', 'jquery','daPaiManJian','newProduct','oneGroup'], 
 				getData.getCaiNiXiHuan(page).then(function(res) {
 					if(res) {
 						var arr = res.data.result.wall.docs;
+						if(!$scope.caiNiXihuan){
+							$scope.caiNiXihuan = [];
+						}
 						$scope.caiNiXihuan = $scope.caiNiXihuan.concat(arr);
 					}else{
 						page--;

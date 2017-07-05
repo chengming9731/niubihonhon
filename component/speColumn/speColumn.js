@@ -94,7 +94,6 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 						}
 						return;
 					}
-					console.log(res);
 				});
 			}
 			$scope.sortMethod = function(sort) {
@@ -132,6 +131,7 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 				$scope.increatPage = 0;
 				initData();
 			}
+
 
 			$scope.jump2product = function(info) {
 				if(info.tradeItemId){

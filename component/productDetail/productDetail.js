@@ -164,7 +164,6 @@ define(['uiRouter', 'jquery'], function() {
 				if(!hasProduct){
 					collectionProducts.unshift(productInfo);
 				}
-				console.log(hasProduct,collectionProducts);
 				localStorage.setItem('collectionProducts',JSON.stringify(collectionProducts));
 			}
 //			立即购买
