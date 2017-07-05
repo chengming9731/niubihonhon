@@ -4,7 +4,9 @@
     margin-bottom: 0rem;
     background-color: #f7f7f7;
 }
-
+img{
+	width: 100%;
+}
 .top_title_span{
 	background: url(../../imgs/home/newProduct/line.png);
 }
