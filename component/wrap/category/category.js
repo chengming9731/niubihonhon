@@ -31,6 +31,7 @@ define(['uiRouter','jquery','speColumn','lazyload'], function() {
 		})
 		.controller('categoryCtrl', ['$scope', '$http', 'productsData', '$state',function($scope, $http, productsData,$state) {
 			var page = 1;
+			$scope.isLoading = false;
 			//获取左侧产品分类菜单
 			productsData.getMultiget().then(function(res) {
 				$scope.categoryList = res.data.data[41789].list;
@@ -44,7 +45,11 @@ define(['uiRouter','jquery','speColumn','lazyload'], function() {
 				$scope.categoryLeftIndex = index || index ==0 ? index : $scope.categoryLeftIndex;
 				var categoryItem = $scope.categoryList[$scope.categoryLeftIndex];
 				productsData.getMakeup(categoryItem.maitKey).then(function(res) {
-				$scope.categoryRight = res.data.data.categoryNavigation.list;
+					$scope.rightTopDataLoading = true;
+					if($scope.rightTopDataLoading && $scope.rightBottomDataLoading){
+						$scope.isLoading = true;
+					}
+					$scope.categoryRight = res.data.data.categoryNavigation.list;
 				});
 				$scope.sortMethodIndex = 0;
 				$scope.getSortMethod();
@@ -67,6 +72,10 @@ define(['uiRouter','jquery','speColumn','lazyload'], function() {
 				//右下产品数据
 				productsData.getProductsList(json).then(function(res) {
 					if(res){
+						$scope.rightBottomDataLoading = true;
+						if($scope.rightTopDataLoading && $scope.rightBottomDataLoading){
+							$scope.isLoading = true;
+						}
 						var arr = $scope.sortProductsArray ? $scope.sortProductsArray : [];
 						$scope.sortProductsArray = arr.concat(res.data.result.wall.docs);
 					} else {

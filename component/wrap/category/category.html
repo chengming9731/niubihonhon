@@ -1,5 +1,5 @@
-<script src='js/libs/me-lazyload.js'></script>
-<div class="category lazyLoadContainer">
+<loading-cover></loading-cover>
+<div class="category lazyLoadContainer" ng-show='isLoading'>
 	<search></search>
 	<div class="main clear">
 		<ul class="main-left fl">
@@ -12,7 +12,7 @@
 				<a href="" class="fl" ng-repeat="value in categoryRight" ng-click="jump2column(value)">
 				<img lazy-src="{{value.image}}" alt="" />
 				<p>{{value.title}}</p>
-			</a>
+				</a>
 			</div>
 			<!--导航墙-->
 			<div id="nav-wall" class="follow clear">

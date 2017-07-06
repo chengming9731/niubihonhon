@@ -35,6 +35,14 @@ define(['uiRouter', 'angularCSS', 'mine', 'wrap','login', 'home','category','sea
 				replace: true,
 			}
 		})
+		.directive('loadingCover',function(){
+			return{
+				restrict:'E',
+				templateUrl:'component/loadingCover/loadingCover.html',
+				replace:true,
+			}
+			
+		})
 		.filter('trust2Html', ['$sce', function($sce) {
 			return function(val) {
 				return $sce.trustAsHtml(val);

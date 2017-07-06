@@ -40,6 +40,7 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 			return info;
 		}])
 		.controller('speColumnCtrl', ['$scope', '$state', '$http', 'columnData', function($scope, $state, $http, columnData) {
+			
 			initData();
 			//初始化头部信息
 			$scope.headRight = '<i class="iconfont icon-gouwuchekong" style="font-size:0.65rem;color:#cccccc;margin-right:0.6rem;"></i>';
@@ -67,6 +68,9 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 			}
 			//			初始化api信息及数据
 			function initData() {
+				if(!($scope.page > 1)){
+					$scope.isLoading = false;
+				} 
 				$('#speColumn #up .back2top').addClass('hide');
 				$scope.columnInfoList = JSON.parse(localStorage.getItem('columnInfoList'));
 				$scope.minPrice = 0;
@@ -79,6 +83,7 @@ define(['uiRouter', 'productDetail', 'jquery'], function() {
 				var api = columnData.getApi($scope.columnLink, $scope.sort, $scope.page, $scope.minPrice, $scope.maxPrice);
 				$http.jsonp(api).then(function(res) {
 					if(res) {
+						$scope.isLoading = true;
 						var result = res.data.result;
 						if($scope.page > 1) {
 							$scope.wall = $scope.wall.concat(result.wall.docs);

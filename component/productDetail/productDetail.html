@@ -1,14 +1,18 @@
+<loading-cover></loading-cover>
 <back-head></back-head>
-<div id="products-detail" class="lazyLoadContainer">
+<div id="products-detail" class="lazyLoadContainer" ng-show='isLoading'>
 	<div class="head">
 		<div class="head-imgs">
-			<div ng-repeat="value in topImages">
-				<img src="{{value}}"/>
-			</div>
-			<div class="image-count">
-				<span>{{topImagesIndex}}</span> /
-				<span>{{topImages.length}}</span>
-			</div>
+			<div class="products-detail-swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide" ng-repeat="value in topImages">
+			        	<img src="{{value}}"/>
+			        </div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			
+				</div>
 		</div>
 		<div class="prodcut-info-desc">
 			<h3>{{itemInfo.title}}</h3>
@@ -161,8 +165,8 @@
 	
 	<div class="products-footer">
 		<div class="up">
-			<a href="" ng-click="quickNav()">快捷 <br /> 导航</a>
-			<a ng-click="back2top()" ng-class="{true:'ishide'}[ishide]"><i class="iconfont icon-een"></i>置顶</a>
+			<p ng-click="quickNav()">快捷 <br /> 导航</p>
+			<p ng-click="back2top()" ng-class="{true:'ishide'}[ishide]"><i class="iconfont icon-een"></i>置顶</p>
 		</div>
 		<div class="down clear">
 			<div class="services fl">
