@@ -1,5 +1,5 @@
-define(['uiRouter', 'jquery'], function() {
-	angular.module('productDetailModule', ['ui.router'])
+define(['uiRouter', 'jquery','lazyload'], function() {
+	angular.module('productDetailModule', ['ui.router','me-lazyload'])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$stateProvider
 				.state('productDetail', {

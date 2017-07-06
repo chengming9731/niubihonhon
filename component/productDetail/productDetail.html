@@ -117,7 +117,7 @@
 			<div class="product-desc-images" ng-repeat=" item in detailInfo.detailImage">
 				<h3>{{item.key}}</h3>
 				<div class="product-desc-pics">
-					<img src="{{imgsrc}}" alt=""   ng-repeat=" imgsrc in item.list"/>
+					<img lazy-src="{{imgsrc}}" alt=""   ng-repeat=" imgsrc in item.list"/>
 				</div>
 			</div>
 			
@@ -145,7 +145,7 @@
 			<!--相似产品-->
 		<div id="product-hot-sale">
 			<a ng-click="jump2product(item)" href="" class="product-recommend" ng-repeat="item in similarityProducts">
-				<img src="{{item.img}}"/>
+				<img lazy-src="{{item.img}}"/>
 				<div>
 					<p>
 						{{item.title}}

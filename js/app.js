@@ -1,9 +1,9 @@
 define(['uiRouter', 'angularCSS', 'mine', 'wrap','login', 'home','category','searchpage', 'evaluated',
-'shopcar','site','addsite','obligat','commonality','whole','sale','receiving','booking'], function() {
+'shopcar','site','addsite','obligat','commonality','whole','sale','receiving','booking','lazyload'], function() {
 	var app = angular.module('myModule', ['ui.router', 'angularCSS', 'bookingModule',
 	'loginModule', 'categoryModule', 'addsiteModule','shopcarModule', 'saleModule',
 	'mineModule', 'wrapModule','searchpageModule', 'wholeMofule','evaluatedModule',
-	'homeModule','siteModule','obligatModule','commonalityModule','receivingModule'])
+	'homeModule','siteModule','obligatModule','commonalityModule','receivingModule','me-lazyload'])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$urlRouterProvider.otherwise('/wrap');
 		})

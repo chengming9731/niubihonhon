@@ -10,7 +10,7 @@
 		<div class="main-right fr lazyLoadContainer">
 			<div class="main-right-hot clear">
 				<a href="" class="fl" ng-repeat="value in categoryRight" ng-click="jump2column(value)">
-				<img src="{{value.image}}" alt="" />
+				<img lazy-src="{{value.image}}" alt="" />
 				<p>{{value.title}}</p>
 			</a>
 			</div>
@@ -23,7 +23,7 @@
 			<div class="products clear">
 				<a href="" ng-click="jump2product(value)" class="item fl" ng-repeat="value in sortProductsArray">
 					<div>
-					<img src="{{value.img}}"/>
+					<img lazy-src="{{value.img}}"/>
 					<span>已售 {{value.sale}} 件</span>
 					</div>
 					<div>

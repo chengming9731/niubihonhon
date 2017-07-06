@@ -1,5 +1,5 @@
-define(['uiRouter','jquery','speColumn'], function() {
-	var categoryApp = angular.module('categoryModule', ['ui.router','speColumnModule'])
+define(['uiRouter','jquery','speColumn','lazyload'], function() {
+	var categoryApp = angular.module('categoryModule', ['ui.router','speColumnModule','me-lazyload'])
 		.config(function($stateProvider, $urlRouterProvider) {
 			$stateProvider.state('wrap.category', {
 				url: '/category',
@@ -41,7 +41,7 @@ define(['uiRouter','jquery','speColumn'], function() {
 			//点击左侧分类给出右上数据
 			$scope.categoryLeftChoose = function(index) {
 				$scope.sortProductsArray = [];
-				$scope.categoryLeftIndex = index ? index : $scope.categoryLeftIndex;
+				$scope.categoryLeftIndex = index || index ==0 ? index : $scope.categoryLeftIndex;
 				var categoryItem = $scope.categoryList[$scope.categoryLeftIndex];
 				productsData.getMakeup(categoryItem.maitKey).then(function(res) {
 				$scope.categoryRight = res.data.data.categoryNavigation.list;
@@ -51,7 +51,10 @@ define(['uiRouter','jquery','speColumn'], function() {
 			}
 			//点击排序方式给出右下数据
 			$scope.getSortMethod = function(index, page) {
-				$scope.sortMethodIndex = index ? index : $scope.sortMethodIndex;
+				if($scope.sortMethodIndex !== index){
+					$scope.sortProductsArray = [];
+				}
+				$scope.sortMethodIndex = index || index == 0? index : $scope.sortMethodIndex;
 				var page = page ? page : 1;
 				var categoryItem = $scope.categoryList[$scope.categoryLeftIndex];
 				var sort = $scope.sortMethodIndex == 2 ? 'new' : ($scope.sortMethodIndex == 1 ? 'sell' : 'pop');
@@ -66,7 +69,6 @@ define(['uiRouter','jquery','speColumn'], function() {
 					if(res){
 						var arr = $scope.sortProductsArray ? $scope.sortProductsArray : [];
 						$scope.sortProductsArray = arr.concat(res.data.result.wall.docs);
-//						console.log(arr);
 					} else {
 						page --;
 					}

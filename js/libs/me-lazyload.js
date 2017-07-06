@@ -74,14 +74,8 @@ angular.module('me-lazyload', [])
         });
     }
 
-//  $win.bind('scroll', checkImage);
-//  $win.bind('resize', checkImage);
-    var lazyLoadContainer = document.getElementsByClassName('lazyLoadContainer');
-    console.log(lazyLoadContainer)
-    for (var i = 0 ; i < lazyLoadContainer.length; i ++) {
-    	lazyLoadContainer[i].addEventListener('scroll',checkImage);
-    }
-    
+    $win.bind('scroll', checkImage);
+    $win.bind('resize', checkImage);
 
     function onLoad(){
         var $el = angular.element(this),
@@ -102,9 +96,11 @@ angular.module('me-lazyload', [])
             animateSpeed: '@'
         },
         link: function($scope, iElement){
+        	angular.element(document.querySelectorAll('.lazyLoadContainer')).bind('scroll', checkImage);
             iElement.bind('load', onLoad);
+
             $scope.$watch('lazySrc', function(){
-                var speed = "3s";
+                var speed = "2s";
                 if ($scope.animateSpeed != null) {
                     speed = $scope.animateSpeed;
                 }
