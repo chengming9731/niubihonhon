@@ -16,7 +16,7 @@ define(['uiRouter', 'jquery', 'lazyload'], function() {
 						var pSwiper = new Swiper('.products-detail-swiper-container', {
 							// 如果需要分页器
 							pagination: '.swiper-pagination',
-							paginationType:'fraction'
+							paginationType: 'fraction'
 						});
 					}, 50);
 				}
@@ -43,7 +43,7 @@ define(['uiRouter', 'jquery', 'lazyload'], function() {
 				}
 			}
 		})
-		.controller('pdCtrl', ['$scope', '$http', 'api', '$state', '$timeout', 'productSwiper',function($scope, $http, api, $state, $timeout,productSwiper) {
+		.controller('pdCtrl', ['$scope', '$http', 'api', '$state', '$timeout', 'productSwiper', function($scope, $http, api, $state, $timeout, productSwiper) {
 			initData();
 			//			头部信息初始化
 
@@ -56,9 +56,11 @@ define(['uiRouter', 'jquery', 'lazyload'], function() {
 					history.go(-1);
 				}
 			}
-
-			function initData() {
-				$scope.isLoading=false;
+			function initStatusData(){
+				$scope.similarityRes = false;
+				$scope.shopInfoRes = false;
+				$scope.productInfoRes = false;
+				$scope.isLoading = false;
 				$scope.ishide = true;
 				$scope.navIsShow = false;
 				$scope.isCoverShow = false;
@@ -70,10 +72,14 @@ define(['uiRouter', 'jquery', 'lazyload'], function() {
 				$scope.productsList = JSON.parse(localStorage.getItem('prodcutsList'))
 				$scope.productInfo = $scope.productsList[0];
 				$scope.similarityProducts = [];
+			}
+			function initData() {
+				initStatusData();
 				//				产品数据
 				$http.jsonp(api.getProductApi($scope.productInfo.tradeItemId))
 					.then(function(res) {
-
+						$scope.productInfoRes = true;
+						checkLoading();
 						var productInfoList = res.data.data;
 						//						一级数据
 						$scope.collcationSet = productInfoList.collcationSet;
@@ -90,8 +96,6 @@ define(['uiRouter', 'jquery', 'lazyload'], function() {
 						$scope.userInfo = productInfoList.userInfo;
 						//						二级数据
 						$scope.topImagesIndex = 1;
-//						头部图片翻页效果
-						productSwiper.start();
 						$scope.headTitle = $scope.itemInfo.title;
 						$scope.shopLevel = (function() {
 							var arr = [];
@@ -112,6 +116,8 @@ define(['uiRouter', 'jquery', 'lazyload'], function() {
 						//				店铺活动信息
 						$http.jsonp(api.getShopActivityApi($scope.userInfo))
 							.then(function(res) {
+								$scope.shopInfoRes = true;
+								checkLoading();
 								$scope.shopAcitivityInfos = res.data.data.list;
 							})
 
@@ -121,15 +127,28 @@ define(['uiRouter', 'jquery', 'lazyload'], function() {
 				if($scope.productInfo.similarityUrl) {
 					$http.jsonp(api.getSimilarityApi($scope.productInfo.similarityUrl))
 						.then(function(res) {
-							$scope.isLoading = true;
+							$scope.similarityRes = true;
+							checkLoading();
 							$scope.similarityProducts = res.data.result.wall.docs;
 							var num = parseInt($scope.similarityProducts.length / 3);
 							$scope.similarityProducts.length = num * 3;
 						})
 				} else {
+					$scope.similarityRes = true;
+					checkLoading();
 					$scope.similarityProducts.length = 0;
 				}
 
+			}
+		
+			function checkLoading() {
+				if($scope.similarityRes && $scope.shopInfoRes && $scope.productInfoRes) {
+					$scope.isLoading = true;
+//						头部图片翻页效果
+					productSwiper.start();
+				} else {
+					$scope.isLoading = false;
+				}
 			}
 			//			更换产品
 			$scope.jump2product = function(product) {
